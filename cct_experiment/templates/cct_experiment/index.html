@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EEG and Learning</title>
+<script type="text/javascript" src="/static/jquery-2.1.0.js"></script>
+<style>
+.ans_button{
+
+	background-color: #1A25E7; 
+	width: 300px; 
+	height: 40px;
+	cursor: pointer;
+	border: 2px solid #060606; 
+	border-radius: 5px; 
+	background-color: #E41D21; 
+	
+}
+
+.diff_button{
+	margin-top:40px;
+	float:left; 
+	background-color: #1A25E7; 
+	width: 200px; 
+	height: 80px;
+	border: 2px solid #060606; 
+	border-radius: 5px; 
+	background-color: #E41D21;
+	cursor: pointer;
+	
+}
+
+#diff_layout{
+	margin: 0 auto; 
+	width:408px;
+	font-size: 300%;
+	text-align: center;
+}
+
+#ans_layout{
+	margin: 0 auto;
+	margin-top:40px; 
+	width:304px;
+}
+
+#start_button{
+	width: 130px; 
+	height: 50px;  
+	margin:0 auto;
+	margin-top:20px;
+	text-align: center; 
+	font-size: larger; 
+	cursor: pointer;   
+	border: 2px solid #060606; 
+	border-radius: 5px; 
+	background-color: #E41D21;
+}
+
+#start_button:hover {
+    background-color: yellow; 
+}
+
+#a:hover {
+    background-color: yellow; 
+}
+
+#b:hover {
+    background-color: yellow; 
+}
+
+#c:hover {
+    background-color: yellow; 
+}
+
+#easy:hover {
+    background-color: yellow; 
+}
+
+#difficult:hover {
+    background-color: yellow; 
+}
+
+#show{
+	height: 300px; 
+	float: none; 
+	background-color: #F0E810; 
+	font-size: xx-large; 
+	text-align: center; 
+	border-width: 10px;
+}
+
+#show_panel{
+	float: none; 
+	height:200px;
+	background-color: #10E111; 
+	font-size: xx-large; 
+	text-align: center; 
+	border-width: 10px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="bg" style="height:50px"> </div>
+<div id="show"> 
+	<div id="show_panel">show panel</div>
+	<div id="start_button" class="button" onclick="start_listen()" > start</div>
+</div>
+
+<div style="height: 300px; float: none; background-color: #3DEBE2;">control panel  
+	<div>
+    	<div id="difficulty" style="float: left; background-color: #43E71B; width: 50%; height: 300px;">difficulty choices
+        	<div id="diff_layout">
+        		<div id="easy" class="diff_button" onclick="easy_btn()">easy</div>
+            	<div id="difficult" class="diff_button" onclick="difficult_btn()">difficult</div>
+        	</div>
+        </div>
+		<div id="answer" style="float: right; background-color: #D51ACF; width: 50%; height: 300px">answer choices
+        	<div id="ans_layout">
+       		  <div id="a" class="ans_button" onclick="a_btn()">A</div>
+           	  <div id="b" class="ans_button" onclick="b_btn()">B</div>
+           	  <div id="c" class="ans_button" onclick="c_btn()">C</div>
+       	  </div>
+      </div>
+  </div>
+</div>
+
+<script>
+
+var sys_state;
+var diff;
+var ans;
+
+function start_listen(){
+	$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
+	$.getJSON("/cct_experiment/start_record", function(data){});
+
+
+	document.getElementById("start_button").style.visibility= "hidden" ;
+	document.getElementById("answer").style.visibility= "hidden" ;
+	document.getElementById("difficulty").style.visibility= "hidden" ;
+
+
+	var time_listen=7;
+	var time = window.setInterval(function(){
+
+		$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
+
+		if(time_listen==7){
+			document.getElementById("bg").innerHTML = '<embed height="50" width="100" src="/static/1-'+sys_state['audio_seq']+'.mp3">';
+		}
+
+		document.getElementById("show_panel").innerHTML+="progress:"+sys_state['progress']+'</br>'+"theta:"+sys_state['theta'];
+
+		if(sys_state['poorSignal']!=0 || sys_state['bluetooth']=='no'){
+			window.clearInterval(time);
+			document.getElementById("bg").innerHTML = '';
+			alert('Please check your electrode...');
+			document.getElementById("start_button").style.visibility="visible";
+		}
+		
+		time_listen=time_listen-1;
+		if (time_listen==-1){
+			document.getElementById("show_panel").innerHTML='time is up';
+  			time_listen==7;
+			window.clearInterval(time);
+			show_difficulty();			
+  		}
+	},1000);	
+}
+
+
+function show_difficulty(){
+	var time_diff=3
+	document.getElementById("difficulty").style.visibility= "visible" ;
+	var time = window.setInterval(function(){
+		document.getElementById("show_panel").innerHTML = time_diff;
+		time_diff=time_diff-1;
+		if (time_diff==-1){
+  			time_diff==3;
+			document.getElementById("difficulty").style.visibility= "hidden" ;
+			window.clearInterval(time);
+			show_answer();
+			
+  		}
+	},1000);	
+}
+
+function show_answer(){
+	var time_ans=3
+	document.getElementById("answer").style.visibility= "visible" ;
+	document.getElementById("a").innerHTML=sys_state['quesA'];
+	document.getElementById("b").innerHTML=sys_state['quesB'];
+	document.getElementById("c").innerHTML=sys_state['quesC'];
+	var time = window.setInterval(function(){
+		document.getElementById("show_panel").innerHTML = time_ans;
+		time_ans=time_ans-1;
+		if (time_ans==-1){
+  			time_ans==3;
+
+			document.getElementById("answer").style.visibility= "hidden" ;
+			window.clearInterval(time);
+
+			$.ajax({
+    			type: "GET",
+    			url: 'http://localhost/cct_experiment/write_data/',
+    			data: {diff:diff,ans:ans},
+    			contentType: "application/json",
+    			dataType: "json",
+			});
+			start_listen()
+  		}
+	},1000);
+}
+
+function easy_btn(){
+	diff = 'easy';
+}
+
+function difficult_btn(){
+	diff = 'difficult';
+}
+
+function a_btn(){
+	ans = 'A'
+}
+
+function b_btn(){
+	ans = 'B'
+}
+
+function c_btn(){
+	ans = 'C'
+}
+
+</script>
+
+</body>
+</html>
+
