@@ -1,0 +1,30 @@
+3-11::(A) I don't have that much money. (B) I need to ask my agent about it. (C) Is that why it's so expensive? ::C
+3-12::(A) To fix the kitchen sink. (B) It is not plum season yet. (C) Around 10:30. ::C
+3-13::(A) What was the subject of discussion? (B) Can I pay the fee by check? (C) I thought it was due by this afternoon. ::C
+3-14::(A) They usually close after 8 p.m. (B) They sell pretty good bakery stuff. (C) It depends on what you need to buy. ::A
+3-15::(A) I was looking for your passport last night. (B)Unfortunately, my flight was canceled. (C) Yes, I had such a great time there last summer. ::B
+3-16::(A) The class is over at 4:30. (B) I didn't finish the homework! (C) Can we eat something first?  ::C
+3-17::(A) Once a month. (B) 18th floor, room 204. (C) Two or three books per meeting. ::A
+3-18::(A) They generally avoid such topics. (B) Which catering service do we usually use? (C) Is it going to be held at the Grand Palace Hotel again this year? ::B
+3-19::(A) Thanks. Please send it to the e-mail address on my business card. (B) This brochure does not contain any price information, does it? (C) What time are you leaving your office today? ::A
+3-20::(A) Is that what the airline said? (B) I think it left 40 minutes ago. (C) Then, which terminal is it? ::A
+3-21::(A) I've been putting it off. (B) I am going to return it soon. (C) The deadline is every other year.  ::A
+3-22::(A) No message from him. (B) From his desk. (C) About an hour ago. ::C
+3-23::(A) No, I am already full. (B) Yes, thanks. (C) The plane leaves at 2:30. ::B
+3-24::(A) He really loved your idea on spend monitoring. (B) Because he is renowned for bypass surgery expertise. (C) You were on vacation and I needed authorization to resolve it. ::C
+3-25::(A) There was a power outage inside the theater. (B) It was supposed to begin at 7:00 in the evening. (C) The band has been traveling around the country. ::A
+3-26::(A) I need to talk to you about something in private. (B) That would be just fine, thank you. (C) This Friday, if possible. ::C
+3-27::(A) I would gladly recommend him for the job. (B) Can you tell me why you say so? (C) My favorit is this one. ::C
+3-28::(A) It's been a while since I was here last time. (B) I don't think the kitchen is busy at this time. (C) The price ranges from $10 to $25 per dish. ::B
+3-29::(A) I think so. Do you have to go somewhere afterward? (B) So far five employees have registered for the program. (C) The instructor has many years of experience in this subject. ::A
+3-30::(A) I don't subscribe to any newspaper. (B) They're on the coffee table. (C) There's not much to read anyway. ::B
+3-31::(A) Certainly sir. (B) She's in Atlanta, Georgia. (C) Two days ago, I think. ::A
+3-32::(A) They're conducting a routine structural check. (B) From this Saturday through next Tuesday. (C) We need to find an alternative route. ::A
+3-33::(A) She is in Florida, now. (B) By 3:30 this afternoon. (C) Sometime next month, I think. ::C
+3-34::(A) I don't speak French, sorry. (B) Sorry, I didn't mean to be rude. (C)Sorry, but it's loud here and I can't hear you. ::B
+3-35::(A) You will have it by the end of today. (B) We have offices in France and Germany. (C) I work as a financial analyst at a local bank. ::A
+3-36::(A) I think they're already overpriced. (B) It is a great time to buy real properties. (C) Why are you telling me now? ::A
+3-37::(A) Turn left and go straight until you see the railroad sign. (B) The traffic signals are not working in this area. (C) No, it's still a few blocks down the road. ::C
+3-38::(A) The training is mandatory for all field managers. (B) Why don't we wait until next month? (C) May I take your name please? ::B
+3-39::(A) The mortgage rate has been down to 5.7 percent. (B) 19 percent of the total amount you owe. (C) $200 piece. ::B
+3-40::(A) Just give me a couple of minutes to refresh my memory. (B) That's very nice of you. Thank you very much for doing me such a favor. (C) I left the accounting department to learn more about sales side of the business. ::A

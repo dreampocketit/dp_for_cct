@@ -1,0 +1,30 @@
+4-11:: (A) I am preparing for dinner. (B) I just don't need them anymore. (C) My boss needs them by the end of the day. ::B
+4-12:: (A) Our suppliers are very reliable. (B) Talk to Mary Jane, our assistant. (C) Could you tell me what made you think so? ::B
+4-13:: (A) They only have an opening in the kitchen. (B) I've been thinking about doing it more frequently. (C) They don't take reservations. ::A
+4-14:: (A) Every single day. (B) I had Monday and Tuesday off. (C) I make $23 per hour.::A
+4-15:: (A) Can you tell me about it tomorrow? (B) I just want soup and salad. (C) What is so special about it? ::B
+4-16:: (A) It's beyond my budget. (B) I love the low gas mileage. (C) Do you need the dealer's number? ::B
+4-17:: (A) About 20 minutes age. (B) No, she is never late. (C) To go to her daughter's school. ::C
+4-18:: (A) The minimum ticket price is $2. (B) The train doesn't stop at 19th Street. (C) Walk straight and turn left on 8th street. ::C
+4-19:: (A) I like eating out for lunch very much. (B) Thanks, but I brought my lunch from home. (C) Yes, could I have a grilled chicken sandwich, please? ::B
+4-20:: (A) We're determined to reach break I break-even this quarter. (B) They took some of it for property damages. (C) I don't use online bank accounts. ::B
+4-21:: (A) The monthly payment is not too bad. (B) It's a second-hand car. (C) It's a hybrid. ::B
+4-22:: (A) Thank you very much for your kindness. (B) No, you don't have to. (C) I need to take my mother to the bamk, sorry. ::C
+4-23:: (A) The vice president will also attend it. (B) It is in Conference B on the 15th floor. (C) I think it starts at 1:30 p.m. ::B
+4-24:: (A) No, I will call them right away. (B) I don't know what it is made of. (C) I'll e-mail him later. ::A
+4-25:: (A) I'd love to. (B) That's what they said. (C) My trip has been postponed. ::B
+4-26:: (A) giveitandy@hanmail.net, right? (B) Isn't it 215 Park Terrace Street? (C) I will e-mail you or give you a call if necessary. ::A
+4-27:: (A) For her, I guess. (B) It was canceled. (C) I am reading it now. ::C
+4-28:: (A) It is a sale price. (B) It's $49 per pair. (C) I will check out tomorrow afternoon. ::B
+4-29:: (A) It's 3:30 p.m. next Thursday. (B) She did a great job, I think. (C) No one called. ::C
+4-30:: (A) Sorry, we don't take checks here. (B) Can I also see your ID please? (C) This is my business card. ::B
+4-31:: (A) I would like to order spaghetti with meat sauce. (B) Just a few days before we go to Switzerland. (C) I am going to visit Venice some day. ::B
+4-32:: (A) I don't remember his extension number. (B) I have a series of questions to ask. (C) Is it underneath my laptop? ::C
+4-33:: (A) No, I am not going to buy any. (B) I thought it was a great performance. (C) You can actually purchase it online. ::C
+4-34:: (A) I thought it was scheduled for next week. (B) She said she will join the discussion. (C) Did anyone reserve meeting room C? ::A
+4-35:: (A) They upgraded many of their machines. (B) They have various membership plans available. (C) They are open from 5:00 a.m. to 10:00 p.m. ::C
+4-36:: (A) I want to stop coughing. (B)Yes, Espresso is my favorite. (C)Yes, Ineed a copy of the report. ::B
+4-37:: (A) There's no merit to joining a different department now. (B) Yes, will I be promoted to a manager by the end of next year? (C) Could you tell me again how the bonus amount was determined? ::C
+4-38:: (A) It's because the company decided to put more TV ads out there. (B) I have six years' experience in marketing events coordination. (C) The advertising budget should be approved by the director before its execution. ::A
+4-39:: (A) Probably because of low ticket sales. (B) What was the singer's name again? (C) You can get a refund as you have the receipt. ::A
+4-40:: (A) The Vice President can't sign any contract over $5 million. (B) Legal counsel failed to advise him against that action. (C) First thing we need to do is to acquire approval from the board of directors. ::B

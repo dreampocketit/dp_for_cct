@@ -135,7 +135,7 @@ def write_data(request):
 	global row_data
 	print '#############################'
 	state = request.GET.get('diff')
-	correct = None
+	correct = 'no'
 	if answer[int(audio_seq[progress-1])-11][0] == request.GET.get('ans'):
 		correct = 'yes'
 	else:
@@ -150,7 +150,7 @@ def write_data(request):
 		f_out.write(',')
 	f_out.write(state+','+correct+'\n')
 	row_data = []
-	print '=============write=============='
+	print 'write:'+state+','+correct+'\n'
 	return HttpResponse('successed to server', content_type="application/json")
 
 
