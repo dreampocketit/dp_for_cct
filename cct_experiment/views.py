@@ -12,7 +12,7 @@ sys_state={}
 object1=NeuroPy("/dev/tty.MindWaveMobile-DevA-1",57600)
 
 ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/1-answer_sheet.txt'
-doc_id = ANSWER_SHEET.split('-')[0]
+doc_id = ANSWER_SHEET.split('/')[-1].split('-')[0]
 RECORD_TIME=8
 
 ###################### sequence and answer #####################
@@ -54,16 +54,18 @@ def get_sys_state(request):
 	global object1
 	global audio_seq
 	global progress
+	global doc_id
 
-	sys_state['poorSignal']=object1.poorSignal
-	sys_state['theta']=object1.theta
-	sys_state['audio_seq']=audio_seq[int(progress)]
-	sys_state['progress']=progress
+	sys_state['poorSignal'] = object1.poorSignal
+	sys_state['theta'] = object1.theta
+	sys_state['audio_seq'] = audio_seq[int(progress)]
+	sys_state['progress'] = progress
+	sys_state['doc_id'] = int(doc_id)
 
 	tmp_ques = ques[audio_seq[int(progress)]-11].split('(')
-	sys_state['quesA']=tmp_ques[0]+tmp_ques[1]
-	sys_state['quesB']=tmp_ques[0]+tmp_ques[2]
-	sys_state['quesC']=tmp_ques[0]+tmp_ques[3]
+	sys_state['quesA'] = tmp_ques[0]+tmp_ques[1]
+	sys_state['quesB'] = tmp_ques[0]+tmp_ques[2]
+	sys_state['quesC'] = tmp_ques[0]+tmp_ques[3]
 
 
 	return HttpResponse(json.dumps(sys_state), content_type="application/json")

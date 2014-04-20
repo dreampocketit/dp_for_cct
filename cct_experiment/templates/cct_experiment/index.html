@@ -148,10 +148,10 @@ function start_listen(){
 		$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 
 		if(time_listen==7){
-			document.getElementById("bg").innerHTML = '<embed height="50" width="100" src="/static/TOEICTEST1/1-'+sys_state['audio_seq']+'.mp3">';
+			document.getElementById("bg").innerHTML = '<embed height="50" width="100" src="/static/TOEICTEST1/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
 		}
 
-		document.getElementById("show_panel").innerHTML+="progress:"+sys_state['progress']+'</br>'+"theta:"+sys_state['theta'];
+		document.getElementById("show_panel").innerHTML="progress:"+sys_state['progress']+'</br>'+"time:"+time_listen;
 
 		if(sys_state['poorSignal']!=0 || sys_state['bluetooth']=='no'){
 			window.clearInterval(time);
