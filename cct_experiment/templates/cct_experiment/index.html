@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>EEG and Learning</title>
 <script type="text/javascript" src="/static/jquery-2.1.0.js"></script>
+
 <style>
 .ans_button{
 
@@ -81,7 +82,7 @@
 }
 
 #show{
-	height: 300px; 
+	height: 400px; 
 	float: none; 
 	background-color: #F0E810; 
 	font-size: xx-large; 
@@ -91,20 +92,29 @@
 
 #show_panel{
 	float: none; 
-	height:200px;
+	height:320px;
 	background-color: #10E111; 
 	font-size: xx-large; 
 	text-align: center; 
 	border-width: 10px;
 }
 
+
 </style>
+
 </head>
 
 <body>
 <div id="bg" style="height:50px"> </div>
 <div id="show"> 
-	<div id="show_panel">show panel</div>
+	<div id="show_panel">show panel
+		<div class="wrapper">
+  			<div class="pie spinner" id="spinner"></div>
+  			<div class="pie filler" id="filler"></div>
+  			<div class="mask" id="mask"></div>
+		</div>
+	</div>
+
 	<div id="start_button" class="button" onclick="start_listen()" > start</div>
 </div>
 
@@ -136,6 +146,7 @@ function start_listen(){
 	$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 	$.getJSON("/cct_experiment/start_record", function(data){});
 
+	
 
 	document.getElementById("start_button").style.visibility= "hidden" ;
 	document.getElementById("answer").style.visibility= "hidden" ;
@@ -148,7 +159,7 @@ function start_listen(){
 		$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 
 		if(time_listen==7){
-			document.getElementById("bg").innerHTML = '<embed height="50" width="100" src="/static/TOEICTEST1/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
+			document.getElementById("bg").innerHTML = '<embed height="50" width="100" volume="30" src="/static/TOEICTEST1/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
 		}
 
 		document.getElementById("show_panel").innerHTML="progress:"+sys_state['progress']+'</br>'+"time:"+time_listen;
@@ -168,6 +179,7 @@ function start_listen(){
 			show_difficulty();			
   		}
 	},1000);	
+
 }
 
 
@@ -216,22 +228,27 @@ function show_answer(){
 
 function easy_btn(){
 	diff = 'easy';
+	document.getElementById("difficulty").style.visibility= "hidden" ;
 }
 
 function difficult_btn(){
 	diff = 'difficult';
+	document.getElementById("difficulty").style.visibility= "hidden" ;
 }
 
 function a_btn(){
-	ans = 'A'
+	ans = 'A';
+	document.getElementById("answer").style.visibility= "hidden" ;
 }
 
 function b_btn(){
-	ans = 'B'
+	ans = 'B';
+	document.getElementById("answer").style.visibility= "hidden" ;
 }
 
 function c_btn(){
-	ans = 'C'
+	ans = 'C';
+	document.getElementById("answer").style.visibility= "hidden" ;
 }
 
 </script>

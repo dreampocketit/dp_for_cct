@@ -1,0 +1,28 @@
+<div class="chart" id="chart">
+  <div style="width: 40px;">4</div>
+</div>
+
+<script>
+	function start_var(){
+		var time = window.setInterval(function(){
+			$.getJSON("/cct_experiment/get_realtime", function(data){
+				document.getElementById("chart").innerHTML='<div style="width:'+ data['score'] +'px;">4</div>'
+			});		
+  		
+		},1000);
+	}
+	
+</script>
+
+<style>
+
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+</style>
