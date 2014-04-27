@@ -34,6 +34,13 @@ public class HelloEEGActivity extends Activity {
 	Button b;
 
     List delta_win = new LinkedList();
+    List theta_win = new LinkedList();
+    List lowAlpha_win = new LinkedList();
+    List highAlpha_win = new LinkedList();
+    List lowBeta_win = new LinkedList();
+    List highBeta_win = new LinkedList();
+    List lowGamma_win = new LinkedList();
+    List midGamma_win = new LinkedList();
 	
 	TGDevice tgDevice;
 	final boolean rawEnabled = false;
@@ -134,12 +141,37 @@ public class HelloEEGActivity extends Activity {
 
                 // a window for time shift
                 if(delta_win.size()>10){
+
+
                     delta_win.remove(0);
-                    delta_win.add(ep.delta);
-                    tv.append("Delta: " + delta_win);
-                }else{
-                    delta_win.add(ep.delta);
+                    theta_win.remove(0);
+                    lowAlpha_win.remove(0);
+                    highAlpha_win.remove(0);
+                    lowBeta_win.remove(0);
+                    highBeta_win.remove(0);
+                    lowGamma_win.remove(0);
+                    midGamma_win.remove(0);
+
+                    String s = "Delta: "+delta_win+"\n"+
+                            "theta: "+theta_win+"\n"+
+                            "lowAlpha: "+lowAlpha_win+"\n"+
+                            "highAlpha: "+highAlpha_win+"\n"+
+                            "lowBeta: "+lowBeta_win+"\n"+
+                            "highBeta: "+highBeta_win+"\n"+
+                            "lowGamma: "+lowGamma_win+"\n"+
+                            "midGamma: "+midGamma_win+"\n";
+                    tv.setText(s);
                 }
+
+
+                delta_win.add(ep.delta);
+                theta_win.add(ep.theta);
+                lowAlpha_win.add(ep.lowAlpha);
+                highAlpha_win.add(ep.highAlpha);
+                lowBeta_win.add(ep.lowBeta);
+                highBeta_win.add(ep.highBeta);
+                lowGamma_win.add(ep.lowGamma);
+                midGamma_win.add(ep.midGamma);
 
             default:
             	break;
@@ -148,7 +180,16 @@ public class HelloEEGActivity extends Activity {
     };
 
     public void printPower(View view) {
-        sendData(delta_win);
+        String s = "["+delta_win.toString()+","+
+                    theta_win.toString()+","+
+                    lowAlpha_win.toString()+","+
+                    highAlpha_win.toString()+","+
+                    lowBeta_win.toString()+","+
+                    highBeta_win.toString()+","+
+                    lowGamma_win.toString()+","+
+                    midGamma_win.toString()+"]";
+
+        sendData(s);
     }
     
     public void doStuff(View view) {
@@ -157,14 +198,14 @@ public class HelloEEGActivity extends Activity {
     	//tgDevice.ena
     }
 
-    public void sendData(List data){
+    public void sendData(String data){
 
         HttpClient httpClient = new DefaultHttpClient();
 
         try {
-            HttpPost request = new HttpPost("http://54.186.186.248/cct_experiment/get_data");
+            HttpPost request = new HttpPost("http://192.168.9.100/for_android/get_data");
 
-            StringEntity se = new StringEntity("details={\"delta\":"+data.toString()+"}");
+            StringEntity se = new StringEntity("details={\"data\":\""+data+"\"}");
 
 
             request.addHeader("content-type", "application/x-www-form-urlencoded");

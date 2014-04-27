@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'javascript_settings',
     'cct_experiment',
+    'for_android',
 )
 
 MIDDLEWARE_CLASSES = (
