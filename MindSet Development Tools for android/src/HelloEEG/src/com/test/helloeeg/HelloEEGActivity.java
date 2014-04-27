@@ -33,6 +33,8 @@ public class HelloEEGActivity extends Activity {
 	TextView tv;
 	Button b;
 
+    String main_url = "http://192.168.9.100";
+
     List delta_win = new LinkedList();
     List theta_win = new LinkedList();
     List lowAlpha_win = new LinkedList();
@@ -76,7 +78,7 @@ public class HelloEEGActivity extends Activity {
         webSettings.setJavaScriptEnabled(true);
 
 
-        browser.loadUrl("http://54.186.186.248/cct_experiment/");
+        browser.loadUrl(main_url+"/for_android/");
 
     }
     
@@ -140,7 +142,7 @@ public class HelloEEGActivity extends Activity {
                 TGEegPower ep = (TGEegPower)msg.obj;
 
                 // a window for time shift
-                if(delta_win.size()>10){
+                if(delta_win.size()>7){
 
 
                     delta_win.remove(0);
@@ -179,7 +181,7 @@ public class HelloEEGActivity extends Activity {
         }
     };
 
-    public void printPower(View view) {
+    public void diffBtn(View view) {
         String s = "["+delta_win.toString()+","+
                     theta_win.toString()+","+
                     lowAlpha_win.toString()+","+
@@ -189,7 +191,20 @@ public class HelloEEGActivity extends Activity {
                     lowGamma_win.toString()+","+
                     midGamma_win.toString()+"]";
 
-        sendData(s);
+        sendData(s,main_url+"/for_android/get_diff_data");
+    }
+
+    public void easyBtn(View view) {
+        String s = "["+delta_win.toString()+","+
+                theta_win.toString()+","+
+                lowAlpha_win.toString()+","+
+                highAlpha_win.toString()+","+
+                lowBeta_win.toString()+","+
+                highBeta_win.toString()+","+
+                lowGamma_win.toString()+","+
+                midGamma_win.toString()+"]";
+
+        sendData(s,main_url+"/for_android/get_easy_data");
     }
     
     public void doStuff(View view) {
@@ -198,29 +213,24 @@ public class HelloEEGActivity extends Activity {
     	//tgDevice.ena
     }
 
-    public void sendData(String data){
+    public void sendData(String data, String url){
 
         HttpClient httpClient = new DefaultHttpClient();
 
         try {
-            HttpPost request = new HttpPost("http://192.168.9.100/for_android/get_data");
+            HttpPost request = new HttpPost(url);
 
             StringEntity se = new StringEntity("details={\"data\":\""+data+"\"}");
-
-
             request.addHeader("content-type", "application/x-www-form-urlencoded");
             request.setEntity(se);
             HttpResponse response = httpClient.execute(request);
             String responseStr = EntityUtils.toString(request.getEntity());
             tv.setText(responseStr);
-
             // handle response here...
         }catch (Exception ex) {
             // handle exception here
         } finally {
             httpClient.getConnectionManager().shutdown();
         }
-
-
     }
 }
