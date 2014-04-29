@@ -5,9 +5,14 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 import json
 import ast
+import os
 
-f_out = open('output.csv','w')
-f_out.write('delta,theta,lowalpha,highalpha,lowbeta,highbeta,lowgamma,midgamma,state,answer\n')
+f_out = None
+if os.path.isfile("output.csv"):
+	f_out = open('output.csv','a')
+else:
+	f_out = open('output.csv','w')
+	f_out.write('delta,theta,lowalpha,highalpha,lowbeta,highbeta,lowgamma,midgamma,state,answer\n')
 
 @csrf_exempt
 def index(request):

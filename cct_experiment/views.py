@@ -9,7 +9,7 @@ import time
 import random
 
 sys_state={}
-object1=NeuroPy("/dev/tty.MindWaveMobile-DevA-1",57600)
+object1=NeuroPy("/dev/tty.MindWaveMobile-DevA",57600)
 
 ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/1-answer_sheet.txt'
 doc_id = ANSWER_SHEET.split('/')[-1].split('-')[0]
@@ -40,8 +40,10 @@ row_data = []
 try:
 	object1.start()
 	sys_state['bluetooth']='yes'
+	print "neurosky is connected"
 except:
 	sys_state['bluetooth']='no'
+	print "neurosky is not connected"
 
 sys_state['next']='yes'
 

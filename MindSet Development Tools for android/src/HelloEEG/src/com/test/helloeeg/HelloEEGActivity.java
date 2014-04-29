@@ -33,7 +33,7 @@ public class HelloEEGActivity extends Activity {
 	TextView tv;
 	Button b;
 
-    String main_url = "http://192.168.9.100";
+    String main_url = "http://140.114.136.176";
 
     List delta_win = new LinkedList();
     List theta_win = new LinkedList();

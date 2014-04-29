@@ -12,9 +12,8 @@
 	width: 300px; 
 	height: 40px;
 	cursor: pointer;
-	border: 2px solid #060606; 
 	border-radius: 5px; 
-	background-color: #E41D21; 
+	background-color: #FF0000; 
 	
 }
 
@@ -24,18 +23,18 @@
 	background-color: #1A25E7; 
 	width: 200px; 
 	height: 80px;
-	border: 2px solid #060606; 
 	border-radius: 5px; 
-	background-color: #E41D21;
+	background-color: #FF0000;
 	cursor: pointer;
 	
 }
 
 #diff_layout{
-	margin: 0 auto; 
-	width:408px;
+	margin: 0 auto;
+	width: 408px;
 	font-size: 300%;
 	text-align: center;
+	background-color: #B21212;
 }
 
 #ans_layout{
@@ -52,50 +51,48 @@
 	text-align: center; 
 	font-size: larger; 
 	cursor: pointer;   
-	border: 2px solid #060606; 
 	border-radius: 5px; 
-	background-color: #E41D21;
+	background-color: #FF0000;
 }
 
 #start_button:hover {
-    background-color: yellow; 
+	background-color: #B21212;
 }
 
 #a:hover {
-    background-color: yellow; 
+	background-color: #B21212;
 }
 
 #b:hover {
-    background-color: yellow; 
+	background-color: #B21212;
 }
 
 #c:hover {
-    background-color: yellow; 
+	background-color: #B21212;
 }
 
 #easy:hover {
-    background-color: yellow; 
+	background-color: #B21212;
 }
 
 #difficult:hover {
-    background-color: yellow; 
+	background-color: #B21212;
 }
 
 #show{
-	height: 400px; 
-	float: none; 
-	background-color: #F0E810; 
-	font-size: xx-large; 
-	text-align: center; 
-	border-width: 10px;
+	height: 400px;
+	float: none;
+	background-color: #0971B2;
+	font-size: xx-large;
+	text-align: center;
 }
 
 #show_panel{
-	float: none; 
-	height:320px;
-	background-color: #10E111; 
-	font-size: xx-large; 
-	text-align: center; 
+	float: none;
+	height: 320px;
+	background-color: #FFFFFF;
+	font-size: xx-large;
+	text-align: center;
 	border-width: 10px;
 }
 
@@ -106,7 +103,8 @@
 
 <body>
 <div id="bg" style="height:50px"> </div>
-<div id="show"> 
+<div id="show">
+	<div id="start_button" class="button" onclick="start_listen()" > start</div> 
 	<div id="show_panel">show panel
 		<div class="wrapper">
   			<div class="pie spinner" id="spinner"></div>
@@ -114,19 +112,17 @@
   			<div class="mask" id="mask"></div>
 		</div>
 	</div>
-
-	<div id="start_button" class="button" onclick="start_listen()" > start</div>
 </div>
 
-<div style="height: 300px; float: none; background-color: #3DEBE2;">control panel  
+<div style="height: 300px; float: none; background-color: #FFFFFF;">control panel  
 	<div>
-    	<div id="difficulty" style="float: left; background-color: #43E71B; width: 50%; height: 300px;">difficulty choices
+    	<div id="difficulty" style="float: left; background-color: #0971B2; width: 50%; height: 300px;">difficulty choices
         	<div id="diff_layout">
         		<div id="easy" class="diff_button" onclick="easy_btn()">easy</div>
             	<div id="difficult" class="diff_button" onclick="difficult_btn()">difficult</div>
         	</div>
         </div>
-		<div id="answer" style="float: right; background-color: #D51ACF; width: 50%; height: 300px">answer choices
+		<div id="answer" style="float: right; background-color: #0971B2; width: 50%; height: 300px">answer choices
         	<div id="ans_layout">
        		  <div id="a" class="ans_button" onclick="a_btn()">A</div>
            	  <div id="b" class="ans_button" onclick="b_btn()">B</div>
@@ -200,7 +196,7 @@ function show_difficulty(){
 }
 
 function show_answer(){
-	var time_ans=3
+	var time_ans=10
 	document.getElementById("answer").style.visibility= "visible" ;
 	document.getElementById("a").innerHTML=sys_state['quesA'];
 	document.getElementById("b").innerHTML=sys_state['quesB'];
