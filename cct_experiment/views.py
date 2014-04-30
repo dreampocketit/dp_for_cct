@@ -9,7 +9,7 @@ import time
 import random
 
 sys_state={}
-object1=NeuroPy("/dev/tty.MindWaveMobile-DevA",57600)
+object1=NeuroPy("/dev/tty.MindWaveMobile-DevA-1",57600)
 
 ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/1-answer_sheet.txt'
 doc_id = ANSWER_SHEET.split('/')[-1].split('-')[0]
@@ -31,7 +31,7 @@ for row in answer_sheet:
 
 ###################### write data ####################
 
-f_out = open('output.csv','w')
+f_out = open('output'+doc_id+'.csv','w')
 f_out.write('delta,theta,lowalpha,highalpha,lowbeta,highbeta,lowgamma,midgamma,state,answer\n')
 
 ######################################################

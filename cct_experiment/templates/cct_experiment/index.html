@@ -9,10 +9,11 @@
 .ans_button{
 
 	background-color: #1A25E7; 
-	width: 300px; 
+	width: 550px; 
 	height: 40px;
 	cursor: pointer;
 	border-radius: 5px; 
+	font-size: 110%;
 	background-color: #FF0000; 
 	
 }
@@ -40,7 +41,7 @@
 #ans_layout{
 	margin: 0 auto;
 	margin-top:40px; 
-	width:304px;
+	width:500px;
 }
 
 #start_button{
@@ -155,7 +156,7 @@ function start_listen(){
 		$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 
 		if(time_listen==7){
-			document.getElementById("bg").innerHTML = '<embed height="50" width="100" volume="30" src="/static/TOEICTEST1/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
+			document.getElementById("bg").innerHTML = '<embed height="50" width="100" volume="30" src="/static/TOEICTEST'+sys_state['doc_id']+'/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
 		}
 
 		document.getElementById("show_panel").innerHTML="progress:"+sys_state['progress']+'</br>'+"time:"+time_listen;
@@ -196,7 +197,7 @@ function show_difficulty(){
 }
 
 function show_answer(){
-	var time_ans=10
+	var time_ans=7
 	document.getElementById("answer").style.visibility= "visible" ;
 	document.getElementById("a").innerHTML=sys_state['quesA'];
 	document.getElementById("b").innerHTML=sys_state['quesB'];

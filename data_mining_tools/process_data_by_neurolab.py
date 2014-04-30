@@ -1,6 +1,6 @@
 P_START_TIME=2
-P_STOP_TIME=8
-FILE_NAME = 'output.csv'
+P_STOP_TIME=7
+FILE_NAME = 'jennifer.csv'
 
 
 
@@ -74,7 +74,7 @@ def power(sta, sto):
 
 		
 		######## start of normalizing ##########
-		
+		'''
 		PLUS = 0
 		DIVIDE = 1600000
 		delta = row['delta'].split('-')
@@ -93,14 +93,14 @@ def power(sta, sto):
 		highbeta = [ int((float(x)/DIVIDE))+PLUS for x in highbeta ]
 		lowbeta = row['lowbeta'].split('-')
 		lowbeta = [ int((float(x)/DIVIDE))+PLUS for x in lowbeta ]
-		
+		'''
 		######## end of normalizing ##########
 		
 		tmp = ''
 		for i in range(sta, sto+1):
 			tmp = tmp+str(delta[i])+','+str(theta[i])+','+str(lowalpha[i])+','+str(highalpha[i])+','+\
 					str(lowbeta[i])+','+str(highbeta[i])+','+str(lowgamma[i])+','+str(midgamma[i])+','
-			
+		
 		f.write(tmp)
 		
 
@@ -150,10 +150,10 @@ def power(sta, sto):
 		f.write(tmp1)
 		'''
 		######## end of calculating different from initials ##########
-		if str(row['state'])=='diff':
-			f.write(str(1)+'\n')
-		else:
+		if str(row['state'])=='easy':
 			f.write(str(0)+'\n')
+		else:
+			f.write(str(1)+'\n')
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
@@ -186,11 +186,13 @@ def acc(sta,sto):
 	target  = np.array(target)
 
 	target.reshape(len(target), 1)
-	net = nl.net.newff([[-0.5, 0.5]]*attr_len, [5,1])
+	net = nl.net.newff([[0, 0.5]]*attr_len, [10,1])
 	net.trainf = nl.train.train_gd
-	error = net.train(input, target,show=500,lr=0.1, epochs=1000, goal=10.5)
+	error = net.train(input, target,show=10000,lr=0.1, epochs=500, goal=0.1)
 	
 	print 'significant error:'+str(min(error))
+
+	print '-------------------------------'
 
 	'''
 	pl.plot(error)
@@ -199,8 +201,16 @@ def acc(sta,sto):
 	pl.grid()
 	pl.show()
 	'''
+	f = open('eva'+str(sta)+'-'+str(sto)+'.csv','w')
+	for a in net.sim(input):
+		f.write(str(a[0])+'\n')
+	f.close()
+
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
 		print 'start time:'+str(i)+'  stop time:'+str(j)
 		acc(i,j)
+'''
+acc(3,6)
+'''
