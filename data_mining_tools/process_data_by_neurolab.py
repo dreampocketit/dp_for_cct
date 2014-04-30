@@ -76,7 +76,7 @@ def power(sta, sto):
 		######## start of normalizing ##########
 		
 		PLUS = 0
-		DIVIDE = 160000
+		DIVIDE = 1600000
 		delta = row['delta'].split('-')
 		delta = [ int((float(x)/DIVIDE))+PLUS for x in delta ]
 		midgamma = row['midgamma'].split('-')
@@ -150,8 +150,10 @@ def power(sta, sto):
 		f.write(tmp1)
 		'''
 		######## end of calculating different from initials ##########
-		
-		f.write(str(row['state'])+'\n')
+		if str(row['state'])=='diff':
+			f.write(str(1)+'\n')
+		else:
+			f.write(str(0)+'\n')
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
@@ -164,34 +166,41 @@ print
 
 ############# start of calculating data ############
 
-import Orange
+import neurolab as nl
+import pylab as pl
+
 
 def acc(sta,sto):
-	data = Orange.data.Table("power"+str(sta)+'-'+str(sto)+".csv")
-	#ma = Orange.feature.scoring.score_all(data)
-	num_mid_arr = []
-	for num_mid in range(5,20):
 
-		
-		ann = Orange.classification.neural.NeuralNetworkLearner(n_mid=num_mid, reg_fact=1, max_iter=10, rand=random, normalize=True)
-		res = Orange.evaluation.testing.cross_validation([ann], data, folds=10)
-		
-		if Orange.evaluation.scoring.CA(res)[0]> 0.5:
-			print '-----------------------------------------------'
-			print 'number of mid is:'+str(num_mid)
-			print 'calculate accuracy:'+str(sta)+'-'+str(sto)+':'
-			print "Accuracy: %.2f" % Orange.evaluation.scoring.CA(res)[0]
-			print "AUC:      %.2f" % Orange.evaluation.scoring.AUC(res)[0]
-			num_mid_arr.append(Orange.evaluation.scoring.CA(res)[0])
+	input = []
+	target = []
+	f = open('power'+str(sta)+'-'+str(sto)+'.csv','rU')
+	f.next()
+	attr_len = 0
+	for row in csv.reader(f):
+		input.append(row[:-1])
+		attr_len = len(row[:-1])
+		target.append([row[-1]])
 
-	return num_mid_arr
+	input = np.array(input)
+	target  = np.array(target)
+
+	target.reshape(len(target), 1)
+	net = nl.net.newff([[-0.5, 0.5]]*attr_len, [5,1])
+	net.trainf = nl.train.train_gd
+	error = net.train(input, target,show=500,lr=0.1, epochs=1000, goal=10.5)
+	
+	print 'significant error:'+str(min(error))
+
+	'''
+	pl.plot(error)
+	pl.xlabel('Epoch number')
+	pl.ylabel('Train error')
+	pl.grid()
+	pl.show()
+	'''
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
 		print 'start time:'+str(i)+'  stop time:'+str(j)
 		acc(i,j)
-
-
-
-
-	

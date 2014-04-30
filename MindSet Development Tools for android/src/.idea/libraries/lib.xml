@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/HelloEEG/lib/ThinkGear.jar!/" />
       <root url="jar://$PROJECT_DIR$/HelloEEG/lib/android-support-v4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/HelloEEG/lib/ThinkGear.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
