@@ -6,17 +6,21 @@
 <script type="text/javascript" src="/static/jquery-2.1.0.js"></script>
 
 <style>
-.ans_button{
 
-	background-color: #017FC4; 
-	width: 550px; 
-	height: 40px;
-	cursor: pointer;
-	border-radius: 5px; 
-	font-size: 120%;
-	background-color: #48BDFF; 
-	
+
+#ans_layout{
+	margin-left:10%;
+	float:none;
 }
+
+
+.ans_text{
+	width: 40px;
+	height: 50px;
+	font-size: 150%;
+	text-align: left;
+}
+
 
 .diff_button{
 
@@ -24,26 +28,31 @@
 	background-color: #017FC4; 
 	width: 40%; 
 	height: 80px;
+	border-style:solid;
+	border-width:5px;
+	border-color:white;
 	border-radius: 5px; 
 	background-color: #48BDFF;
 	cursor: pointer;
-
-
-	
 }
+
+#easy{
+	background-color:#48BDFF;
+}
+
+#difficult{
+	background-color: #F17A7A;
+}
+
 
 #diff_layout{
 
 	width: 408px;
 	font-size: 300%;
 	text-align: center;
+	margin-left: 25%;
 }
 
-#ans_layout{
-	margin: 0 auto;
-	margin-top:40px; 
-	width:500px;
-}
 
 #start_button{
 	width: 130px; 
@@ -61,16 +70,16 @@
 	background-color: #0087D4;
 }
 
-#a:hover {
-	background-color: #0087D4;
+#a_btn:hover {
+	background-color: green;
 }
 
-#b:hover {
-	background-color: #0087D4;
+#b_btn:hover {
+	background-color: green;
 }
 
-#c:hover {
-	background-color: #0087D4;
+#c_btn:hover {
+	background-color: green;
 }
 
 #easy:hover {
@@ -79,7 +88,7 @@
 }
 
 #difficult:hover {
-	background-color: #0087D4;
+	background-color: #C8064F;
 }
 
 #show{
@@ -92,7 +101,7 @@
 #show_panel{
 	float:left;
 	width: 48%;
-	height: 320px;
+	height: 300px;
 	background-color: #FFFFFF;
 	font-size: xx-large;
 	text-align: center;
@@ -104,21 +113,21 @@
 #difficulty_panel{
 	float: left;
 	width: 48%;
-	height: 320px;
+	height: 300px;
 	background-color: #FFFFFF;
 	text-align: center;
 	border-width: 5px;
 	border-radius: 15px;
 	border-style: solid;
+	border-color: black;
 
 }
 
 #answer_panel{
 	float:left;
 	width: 48%;
-	height: 320px;
+	height: 300px;
 	background-color: #FFFFFF;
-	text-align: center;
 	border-width: 5px;
 	border-radius:15px;
 	border-style: solid;
@@ -127,7 +136,7 @@
 #rest_panel{
 	float:left;
 	width: 48%;
-	height: 320px;
+	height: 300px;
 	background-color: #FFFFFF;
 	font-size: xx-large;
 	text-align: center;
@@ -141,7 +150,7 @@
 </head>
 
 <body>
-<div id="bg" style="height:50px"> </div>
+<div id="bg" style="height:0px"> </div>
 <div id="show">
 	<div id="start_button" class="button" onclick="start_listen()" > start</div> 
 	<div id="show_panel">show panel
@@ -154,18 +163,20 @@
 
 <div>
 	<div>
-    	<div class="diff_button" id="difficulty_panel">difficulity choices
+    	<div class="diff_button" id="difficulty_panel">
+        	<div id="show_diff" style="height:100px; font-size: 300%;">3</div>
         	<div id="diff_layout">
         		<div id="easy" class="diff_button" onclick="easy_btn()">easy</div>
             	<div id="difficult" class="diff_button" onclick="difficult_btn()">difficult</div>
         	</div>
         </div>
-		<div id="answer_panel">answer choices
-        	<div id="ans_layout">
-       		  <div id="a" class="ans_button" onclick="a_btn()">A</div>
-           	  <div id="b" class="ans_button" onclick="b_btn()">B</div>
-           	  <div id="c" class="ans_button" onclick="c_btn()">C</div>
-       	  </div>
+		<div id="answer_panel">
+        	<div id="show_ans" style="height:100px; text-align:center; font-size: 300%;">7</div>
+        	<div id="ans_layout" >  
+				<INPUT TYPE="radio" value="Uncheck" onClick="a_btn()"><span id="a_text" class="ans_text">this is a</span></br>
+				<INPUT TYPE="radio" value="Uncheck" onClick="b_btn()"><span id="b_text" class="ans_text">this is b</span></br>
+				<INPUT TYPE="radio" value="Uncheck" onClick="c_btn()"><span id="c_text" class="ans_text">this is c</span></br>
+       	    </div>
       </div>
   </div>
 </div>
@@ -175,13 +186,14 @@
 var sys_state;
 var diff;
 var ans;
+var c_a;
+var c_b;
+var c_c;
 
 function start_listen(){
 
 	$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 	$.getJSON("/cct_experiment/start_record", function(data){});
-
-	
 
 	document.getElementById("start_button").style.visibility= "hidden" ;
 	document.getElementById("answer_panel").style.visibility= "hidden" ;
@@ -191,11 +203,17 @@ function start_listen(){
 
 	var time_listen=7;
 	var time = window.setInterval(function(){
-
 		$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
-
 		if(time_listen==7){
-			document.getElementById("bg").innerHTML = '<embed height="50" width="100" volume="30" src="/static/TOEIC/TOEICTEST'+sys_state['doc_id']+'/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
+			document.getElementById("bg").innerHTML = '<embed height="0px" width="100" volume="30" src="/static/ding.mp3">';
+		}
+
+		if(time_listen==6){
+			document.getElementById("bg").innerHTML = '<embed height="0px" width="100" volume="30" src="/static/TOEIC/TOEICTEST'+sys_state['doc_id']+'/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
+			
+			c_a = sys_state['quesA'];
+			c_b = sys_state['quesB'];
+			c_c = sys_state['quesC'];
 		}
 
 		document.getElementById("show_panel").innerHTML="progress:"+sys_state['progress']+'</br>'+"time:"+time_listen;
@@ -221,11 +239,11 @@ function start_listen(){
 
 
 function show_difficulty(){
-	var time_diff=3
+	var time_diff=2
 	document.getElementById("difficulty_panel").style.visibility= "visible" ;
 	document.getElementById("show_panel").style.visibility= "hidden" ;
 	var time = window.setInterval(function(){
-		document.getElementById("show_panel").innerHTML = time_diff;
+		document.getElementById("show_diff").innerHTML = time_diff;
 		time_diff=time_diff-1;
 		if (time_diff==-1){
   			time_diff==3;
@@ -238,16 +256,15 @@ function show_difficulty(){
 }
 
 function show_answer(){
-	var time_ans=2
+	var time_ans=6
 	document.getElementById("answer_panel").style.visibility= "visible" ;
-	document.getElementById("a").innerHTML=sys_state['quesA'];
-	document.getElementById("b").innerHTML=sys_state['quesB'];
-	document.getElementById("c").innerHTML=sys_state['quesC'];
+	document.getElementById("a_text").innerHTML=c_a;
+	document.getElementById("b_text").innerHTML=c_b;
+	document.getElementById("c_text").innerHTML=c_c;
 	var time = window.setInterval(function(){
-		document.getElementById("show_panel").innerHTML = time_ans;
+		document.getElementById("show_ans").innerHTML = time_ans;
 		time_ans=time_ans-1;
 		if (time_ans==-1){
-
 			document.getElementById("answer_panel").style.visibility= "hidden" ;
 			window.clearInterval(time);
 
@@ -285,17 +302,14 @@ function difficult_btn(){
 
 function a_btn(){
 	ans = 'A';
-	document.getElementById("answer_panel").style.visibility= "hidden" ;
 }
 
 function b_btn(){
 	ans = 'B';
-	document.getElementById("answer_panel").style.visibility= "hidden" ;
 }
 
 function c_btn(){
 	ans = 'C';
-	document.getElementById("answer_panel").style.visibility= "hidden" ;
 }
 
 </script>
