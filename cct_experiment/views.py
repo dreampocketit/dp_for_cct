@@ -9,7 +9,7 @@ import time
 import random
 
 sys_state={}
-object1=NeuroPy("/dev/tty.MindWaveMobile-DevA-1",57600)
+object1=NeuroPy("/dev/tty.MindWaveMobile-DevA",57600)
 
 ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/1-answer_sheet.txt'
 doc_id = ANSWER_SHEET.split('/')[-1].split('-')[0]
@@ -36,6 +36,7 @@ f_out.write('delta,theta,lowalpha,highalpha,lowbeta,highbeta,lowgamma,midgamma,s
 
 ######################################################
 row_data = []
+
 
 try:
 	object1.start()
@@ -69,6 +70,8 @@ def get_sys_state(request):
 	sys_state['quesA'] = tmp_ques[0]+tmp_ques[1]
 	sys_state['quesB'] = tmp_ques[0]+tmp_ques[2]
 	sys_state['quesC'] = tmp_ques[0]+tmp_ques[3]
+
+	print tmp_ques[0]
 
 
 	return HttpResponse(json.dumps(sys_state), content_type="application/json")
@@ -157,5 +160,6 @@ def write_data(request):
 	row_data = []
 	print 'write:'+state+','+correct+'\n'
 	return HttpResponse('successed to server', content_type="application/json")
+
 
 

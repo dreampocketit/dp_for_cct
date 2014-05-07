@@ -8,34 +8,35 @@
 <style>
 .ans_button{
 
-	background-color: #1A25E7; 
+	background-color: #017FC4; 
 	width: 550px; 
 	height: 40px;
 	cursor: pointer;
 	border-radius: 5px; 
-	font-size: 110%;
-	background-color: #FF0000; 
+	font-size: 120%;
+	background-color: #48BDFF; 
 	
 }
 
 .diff_button{
-	margin-top:40px;
+
 	float:left; 
-	background-color: #1A25E7; 
-	width: 200px; 
+	background-color: #017FC4; 
+	width: 40%; 
 	height: 80px;
 	border-radius: 5px; 
-	background-color: #FF0000;
+	background-color: #48BDFF;
 	cursor: pointer;
+
+
 	
 }
 
 #diff_layout{
-	margin: 0 auto;
+
 	width: 408px;
 	font-size: 300%;
 	text-align: center;
-	background-color: #B21212;
 }
 
 #ans_layout{
@@ -48,55 +49,92 @@
 	width: 130px; 
 	height: 50px;  
 	margin:0 auto;
-	margin-top:20px;
 	text-align: center; 
 	font-size: larger; 
 	cursor: pointer;   
 	border-radius: 5px; 
-	background-color: #FF0000;
+	background-color: #48BDFF;
+	margin-bottom: 20px;
 }
 
 #start_button:hover {
-	background-color: #B21212;
+	background-color: #0087D4;
 }
 
 #a:hover {
-	background-color: #B21212;
+	background-color: #0087D4;
 }
 
 #b:hover {
-	background-color: #B21212;
+	background-color: #0087D4;
 }
 
 #c:hover {
-	background-color: #B21212;
+	background-color: #0087D4;
 }
 
 #easy:hover {
-	background-color: #B21212;
+	background-color: #0087D4;
+
 }
 
 #difficult:hover {
-	background-color: #B21212;
+	background-color: #0087D4;
 }
 
 #show{
 	height: 400px;
-	float: none;
-	background-color: #0971B2;
+	margin: 0px auto;
 	font-size: xx-large;
 	text-align: center;
 }
 
 #show_panel{
-	float: none;
+	float:left;
+	width: 48%;
 	height: 320px;
 	background-color: #FFFFFF;
 	font-size: xx-large;
 	text-align: center;
-	border-width: 10px;
+	border-width: 5px;
+	border-radius:15px;
+	border-style: solid;
 }
 
+#difficulty_panel{
+	float: left;
+	width: 48%;
+	height: 320px;
+	background-color: #FFFFFF;
+	text-align: center;
+	border-width: 5px;
+	border-radius: 15px;
+	border-style: solid;
+
+}
+
+#answer_panel{
+	float:left;
+	width: 48%;
+	height: 320px;
+	background-color: #FFFFFF;
+	text-align: center;
+	border-width: 5px;
+	border-radius:15px;
+	border-style: solid;
+}
+
+#rest_panel{
+	float:left;
+	width: 48%;
+	height: 320px;
+	background-color: #FFFFFF;
+	font-size: xx-large;
+	text-align: center;
+	border-width: 5px;
+	border-radius: 15px;
+	border-style: solid;
+}
 
 </style>
 
@@ -107,23 +145,22 @@
 <div id="show">
 	<div id="start_button" class="button" onclick="start_listen()" > start</div> 
 	<div id="show_panel">show panel
-		<div class="wrapper">
-  			<div class="pie spinner" id="spinner"></div>
-  			<div class="pie filler" id="filler"></div>
-  			<div class="mask" id="mask"></div>
-		</div>
+
+	</div>
+    <div id="rest_panel">rest panel
+
 	</div>
 </div>
 
-<div style="height: 300px; float: none; background-color: #FFFFFF;">control panel  
+<div>
 	<div>
-    	<div id="difficulty" style="float: left; background-color: #0971B2; width: 50%; height: 300px;">difficulty choices
+    	<div class="diff_button" id="difficulty_panel">difficulity choices
         	<div id="diff_layout">
         		<div id="easy" class="diff_button" onclick="easy_btn()">easy</div>
             	<div id="difficult" class="diff_button" onclick="difficult_btn()">difficult</div>
         	</div>
         </div>
-		<div id="answer" style="float: right; background-color: #0971B2; width: 50%; height: 300px">answer choices
+		<div id="answer_panel">answer choices
         	<div id="ans_layout">
        		  <div id="a" class="ans_button" onclick="a_btn()">A</div>
            	  <div id="b" class="ans_button" onclick="b_btn()">B</div>
@@ -140,14 +177,16 @@ var diff;
 var ans;
 
 function start_listen(){
+
 	$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 	$.getJSON("/cct_experiment/start_record", function(data){});
 
 	
 
 	document.getElementById("start_button").style.visibility= "hidden" ;
-	document.getElementById("answer").style.visibility= "hidden" ;
-	document.getElementById("difficulty").style.visibility= "hidden" ;
+	document.getElementById("answer_panel").style.visibility= "hidden" ;
+	document.getElementById("difficulty_panel").style.visibility= "hidden" ;
+	document.getElementById("rest_panel").style.visibility= "hidden" ;
 
 
 	var time_listen=7;
@@ -156,7 +195,7 @@ function start_listen(){
 		$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 
 		if(time_listen==7){
-			document.getElementById("bg").innerHTML = '<embed height="50" width="100" volume="30" src="/static/TOEICTEST'+sys_state['doc_id']+'/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
+			document.getElementById("bg").innerHTML = '<embed height="50" width="100" volume="30" src="/static/TOEIC/TOEICTEST'+sys_state['doc_id']+'/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
 		}
 
 		document.getElementById("show_panel").innerHTML="progress:"+sys_state['progress']+'</br>'+"time:"+time_listen;
@@ -176,19 +215,21 @@ function start_listen(){
 			show_difficulty();			
   		}
 	},1000);	
+	document.getElementById("bg").innerHTML = sys_state['audio_seq'];
 
 }
 
 
 function show_difficulty(){
 	var time_diff=3
-	document.getElementById("difficulty").style.visibility= "visible" ;
+	document.getElementById("difficulty_panel").style.visibility= "visible" ;
+	document.getElementById("show_panel").style.visibility= "hidden" ;
 	var time = window.setInterval(function(){
 		document.getElementById("show_panel").innerHTML = time_diff;
 		time_diff=time_diff-1;
 		if (time_diff==-1){
   			time_diff==3;
-			document.getElementById("difficulty").style.visibility= "hidden" ;
+			document.getElementById("difficulty_panel").style.visibility= "hidden" ;
 			window.clearInterval(time);
 			show_answer();
 			
@@ -197,8 +238,8 @@ function show_difficulty(){
 }
 
 function show_answer(){
-	var time_ans=7
-	document.getElementById("answer").style.visibility= "visible" ;
+	var time_ans=2
+	document.getElementById("answer_panel").style.visibility= "visible" ;
 	document.getElementById("a").innerHTML=sys_state['quesA'];
 	document.getElementById("b").innerHTML=sys_state['quesB'];
 	document.getElementById("c").innerHTML=sys_state['quesC'];
@@ -206,9 +247,8 @@ function show_answer(){
 		document.getElementById("show_panel").innerHTML = time_ans;
 		time_ans=time_ans-1;
 		if (time_ans==-1){
-  			time_ans==3;
 
-			document.getElementById("answer").style.visibility= "hidden" ;
+			document.getElementById("answer_panel").style.visibility= "hidden" ;
 			window.clearInterval(time);
 
 			$.ajax({
@@ -218,34 +258,44 @@ function show_answer(){
     			contentType: "application/json",
     			dataType: "json",
 			});
-			start_listen()
+			
+			show_rest();
   		}
 	},1000);
 }
 
+function show_rest(){
+	document.getElementById("rest_panel").style.visibility= "visible" ;
+	var time = window. setTimeout(function(){
+		document.getElementById("rest_panel").style.visibility= "hidden" ;
+		document.getElementById("show_panel").style.visibility= "visible" ;
+		start_listen();
+	}, 1000);
+}
+
 function easy_btn(){
 	diff = 'easy';
-	document.getElementById("difficulty").style.visibility= "hidden" ;
+	document.getElementById("difficulty_panel").style.visibility= "hidden" ;
 }
 
 function difficult_btn(){
 	diff = 'difficult';
-	document.getElementById("difficulty").style.visibility= "hidden" ;
+	document.getElementById("difficulty_panel").style.visibility= "hidden" ;
 }
 
 function a_btn(){
 	ans = 'A';
-	document.getElementById("answer").style.visibility= "hidden" ;
+	document.getElementById("answer_panel").style.visibility= "hidden" ;
 }
 
 function b_btn(){
 	ans = 'B';
-	document.getElementById("answer").style.visibility= "hidden" ;
+	document.getElementById("answer_panel").style.visibility= "hidden" ;
 }
 
 function c_btn(){
 	ans = 'C';
-	document.getElementById("answer").style.visibility= "hidden" ;
+	document.getElementById("answer_panel").style.visibility= "hidden" ;
 }
 
 </script>

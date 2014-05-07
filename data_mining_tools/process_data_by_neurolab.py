@@ -1,12 +1,13 @@
-P_START_TIME=2
-P_STOP_TIME=7
-FILE_NAME = 'jennifer.csv'
+P_START_TIME=4
+P_STOP_TIME=8
+FILE_NAME = 'katrina.csv'
 
 
 
 import csv
 import numpy as np
 import random
+import itertools
 
 
 delta_s = 'delta'
@@ -178,21 +179,24 @@ def acc(sta,sto):
 	f.next()
 	attr_len = 0
 	for row in csv.reader(f):
-		input.append(row[:-1])
-		attr_len = len(row[:-1])
+
+		input.append(select_attr(row,[7],len(row)))
+		attr_len = len(input[0])
 		target.append([row[-1]])
 
-	input = np.array(input)
 	target  = np.array(target)
 
 	target.reshape(len(target), 1)
-	net = nl.net.newff([[0, 0.5]]*attr_len, [10,1])
-	net.trainf = nl.train.train_gd
-	error = net.train(input, target,show=10000,lr=0.1, epochs=500, goal=0.1)
-	
-	print 'significant error:'+str(min(error))
+	net = nl.net.newff([[0, 0.5]]*attr_len, [8,1])
 
-	print '-------------------------------'
+	
+	input = np.array(input)
+	ten_cross(input, target, net)
+#	net.trainf = nl.train.train_gd
+#	error = net.train(input, target,show=10000,lr=0.1, epochs=1000, goal=0.1)
+	
+#	print 'significant error:'+str(min(error))
+
 
 	'''
 	pl.plot(error)
@@ -201,16 +205,88 @@ def acc(sta,sto):
 	pl.grid()
 	pl.show()
 	'''
-	f = open('eva'+str(sta)+'-'+str(sto)+'.csv','w')
-	for a in net.sim(input):
-		f.write(str(a[0])+'\n')
-	f.close()
+#	for a in net.sim(input):
+#		if a[0]>0.9999:
+#			print str(1)
+#		else:
+#			print str(0)
+
+#	f = open('eva'+str(sta)+'-'+str(sto)+'.csv','w')
+#	for a in net.sim(input):
+#		f.write(str(a[0])+'\n')
+#	f.close()
+#
+
+def select_attr(arr, select, len_of_array):
+	tmp_result = []
+	for name in select:
+		for shift in range(0,(len_of_array/8)):
+			tmp_result.append(arr[name+shift*8])
+
+	print tmp_result
+	return tmp_result
 
 
+def ten_cross(input, target, net):
+
+	part_len = int(len(input)/10)
+	pred_result = []
+
+	net.trainf = nl.train.train_gd
+	
+	now = 0
+	for progress in range(0,10):
+#		print progress*part_len
+#		print (progress+1)*part_len
+		train_set = None
+		train_tar = None
+		if progress == 0:
+			train_set = input[(progress+1)*part_len:-1]
+			train_tar = target[(progress+1)*part_len:-1]
+		elif progress == 9:
+			train_set = input[0:progress*part_len]
+			train_tar = target[0:(progress)*part_len]
+		else:
+			train_set = np.concatenate((input[0:progress*part_len],input[(progress+1)*part_len:-1]))
+			train_tar = np.concatenate((target[0:progress*part_len],target[(progress+1)*part_len:-1]))
+
+#		print ":"+str(target[progress*part_len])
+#		print ":"+str(target[now])
+
+		error = net.train(train_set, train_tar ,show=10000,lr=0.1, epochs=100, goal=0.1)
+		pred = net.sim(input[progress*part_len:(progress+1)*part_len])
+
+		acc_num = 0
+		
+#		print pred
+
+		for i in pred:
+#			print now
+			if i[0]>0.999:
+				
+				if int(target[now][0])==1:
+					acc_num+=1
+#					print 'right'
+
+			else:
+				if int(target[now][0])==0:
+					acc_num+=1
+#					print 'right'
+					
+			now+=1
+						
+		pred_result.append(float(acc_num)/len(pred))
+
+	print np.average(np.array(pred_result))
+
+#select_attr([0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7],[1,4,3],len([0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7]))
+
+'''
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
 		print 'start time:'+str(i)+'  stop time:'+str(j)
 		acc(i,j)
 '''
+
 acc(3,6)
-'''
+

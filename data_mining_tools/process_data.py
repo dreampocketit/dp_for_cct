@@ -1,12 +1,13 @@
-P_START_TIME=2
+P_START_TIME=4
 P_STOP_TIME=8
-FILE_NAME = 'output.csv'
+FILE_NAME = 'katrina.csv'
 
 
 
 import csv
 import numpy as np
 import random
+import itertools
 
 
 delta_s = 'delta'
@@ -74,9 +75,9 @@ def power(sta, sto):
 
 		
 		######## start of normalizing ##########
-		
+		'''
 		PLUS = 0
-		DIVIDE = 160000
+		DIVIDE = 1600000
 		delta = row['delta'].split('-')
 		delta = [ int((float(x)/DIVIDE))+PLUS for x in delta ]
 		midgamma = row['midgamma'].split('-')
@@ -93,14 +94,14 @@ def power(sta, sto):
 		highbeta = [ int((float(x)/DIVIDE))+PLUS for x in highbeta ]
 		lowbeta = row['lowbeta'].split('-')
 		lowbeta = [ int((float(x)/DIVIDE))+PLUS for x in lowbeta ]
-		
+		'''
 		######## end of normalizing ##########
 		
 		tmp = ''
 		for i in range(sta, sto+1):
 			tmp = tmp+str(delta[i])+','+str(theta[i])+','+str(lowalpha[i])+','+str(highalpha[i])+','+\
 					str(lowbeta[i])+','+str(highbeta[i])+','+str(lowgamma[i])+','+str(midgamma[i])+','
-			
+		
 		f.write(tmp)
 		
 
@@ -150,48 +151,12 @@ def power(sta, sto):
 		f.write(tmp1)
 		'''
 		######## end of calculating different from initials ##########
-		
-		f.write(str(row['state'])+'\n')
+		if str(row['state'])=='easy':
+			f.write(str(0)+'\n')
+		else:
+			f.write(str(1)+'\n')
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
 		power(i,j)
 		print 'produce files:'+str(i)+'-'+str(j)
-
-print 
-print 'now we are start to calculating:'
-print 
-
-############# start of calculating data ############
-
-import Orange
-
-def acc(sta,sto):
-	data = Orange.data.Table("power"+str(sta)+'-'+str(sto)+".csv")
-	#ma = Orange.feature.scoring.score_all(data)
-	num_mid_arr = []
-	for num_mid in range(5,20):
-
-		
-		ann = Orange.classification.neural.NeuralNetworkLearner(n_mid=num_mid, reg_fact=1, max_iter=10, rand=random, normalize=True)
-		res = Orange.evaluation.testing.cross_validation([ann], data, folds=10)
-		
-		if Orange.evaluation.scoring.CA(res)[0]> 0.5:
-			print '-----------------------------------------------'
-			print 'number of mid is:'+str(num_mid)
-			print 'calculate accuracy:'+str(sta)+'-'+str(sto)+':'
-			print "Accuracy: %.2f" % Orange.evaluation.scoring.CA(res)[0]
-			print "AUC:      %.2f" % Orange.evaluation.scoring.AUC(res)[0]
-			num_mid_arr.append(Orange.evaluation.scoring.CA(res)[0])
-
-	return num_mid_arr
-
-for i in range(P_START_TIME,P_STOP_TIME-1):
-	for j in range(i+1,P_STOP_TIME):
-		print 'start time:'+str(i)+'  stop time:'+str(j)
-		acc(i,j)
-
-
-
-
-	
