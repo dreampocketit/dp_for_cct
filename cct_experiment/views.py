@@ -67,9 +67,9 @@ def get_sys_state(request):
 	sys_state['doc_id'] = int(doc_id)
 
 	tmp_ques = ques[audio_seq[int(progress)]-11].split('(')
-	sys_state['quesA'] = tmp_ques[0]+tmp_ques[1]
-	sys_state['quesB'] = tmp_ques[0]+tmp_ques[2]
-	sys_state['quesC'] = tmp_ques[0]+tmp_ques[3]
+	sys_state['quesA'] = tmp_ques[1]
+	sys_state['quesB'] = tmp_ques[2]
+	sys_state['quesC'] = tmp_ques[3]
 
 	print tmp_ques[0]
 
