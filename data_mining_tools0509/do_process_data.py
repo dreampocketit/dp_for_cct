@@ -1,6 +1,6 @@
 P_START_TIME=0
 P_STOP_TIME=8
-FILE_NAME = 'katrina.csv'
+FILE_NAME = 'Katrina.csv'
 
 
 
@@ -50,9 +50,9 @@ def power(sta, sto):
 	for i in range(sta, sto+1): 
 		f.write(delta_s+'_c'+str(i)+','+theta_s+'_c'+str(i)+','+low_alpha_s+'_c'+str(i)+','+high_alpha_s+'_c'+str(i)+','+\
 				low_beta_s+'_c'+str(i)+','+high_beta_s+'_c'+str(i)+','+low_gamma_s+'_c'+str(i)+','+mid_gamma_s+'_c'+str(i)+',')
-	
-	f.write('state\n')
 	'''
+	f.write('state\n')
+	
 
 	for row in csv.DictReader(open(FILE_NAME,'rU')):
 		

@@ -8,7 +8,7 @@ from Orange.classification.svm import SVMLearner, kernels
 from Orange.distance import Euclidean
 from Orange.distance import Hamming
 
-data = Orange.data.Table("../power3-7.csv")
+data = Orange.data.Table("../power2-6.csv")
 
 for i in range(1,11):
 	j=float(i)/100

@@ -1,4 +1,5 @@
-delta_1,theta_1,lowalpha_1,highalpha_1,lowbeta_1,highbeta_1,lowgamma_1,midgamma_1,delta_2,theta_2,lowalpha_2,highalpha_2,lowbeta_2,highbeta_2,lowgamma_2,midgamma_2,11,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+delta_1,theta_1,lowalpha_1,highalpha_1,lowbeta_1,highbeta_1,lowgamma_1,midgamma_1,delta_2,theta_2,lowalpha_2,highalpha_2,lowbeta_2,highbeta_2,lowgamma_2,midgamma_2,state
+11,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
 12,0,0,0,0,0,0,0,11,9,0,0,0,0,0,0,0
 17,2,0,0,0,0,0,0,7,1,0,0,0,0,0,0,0
 7,0,0,0,0,0,0,0,2,4,0,0,0,0,0,0,1

@@ -1,11 +1,10 @@
 import Orange, cPickle
 from Orange.classification import svm
 
-data = Orange.data.Table("power2-6.csv")
-print data[1:10]
+data = Orange.data.Table("../power3-6.csv")
 classifier = svm.LinearSVMLearner(data)
 
-test_data = Orange.data.Table("power2-6-test.csv")
+test_data = Orange.data.Table("../power2-6-test.csv")
 
 i = 0
 for row in test_data:
