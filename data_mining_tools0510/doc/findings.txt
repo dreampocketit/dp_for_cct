@@ -1,1 +1,5 @@
 1. if we divide the power into 2 parts by time, one of them might have higher accuracy than all data. So, about EEG, the time factors should be considered. 
+
+2. With 2-3 seconds baseline, we could get higher precision rate from 120 data. So, it's confirmed that EEG would change its basedine states by time. 
+
+3. Should we ding for 2 seconds?

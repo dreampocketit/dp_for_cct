@@ -1,22 +1,30 @@
 import Orange
 import random
+from Orange.evaluation import testing, scoring
+from Orange import evaluation
 
 def acc(sta,sto):
 	data = Orange.data.Table("../data/power"+str(sta)+'-'+str(sto)+".csv")
 	#ma = Orange.feature.scoring.score_all(data)
-
+	print str(sta)+'-'+str(sto)
+	highest = 0
 	for mid_node in range(5,20):
 		ann = Orange.classification.neural.NeuralNetworkLearner(n_mid=mid_node, reg_fact=1, max_iter=200, rand=random, normalize=True)
-		res = Orange.evaluation.testing.cross_validation([ann], data, folds=10)
-		print str(sta)+'-'+str(sto)+':'
-		print 'mid_node:'+str(mid_node)
-		print "Accuracy: %.2f" % Orange.evaluation.scoring.CA(res)[0]
-		print "AUC:      %.2f" % Orange.evaluation.scoring.AUC(res)[0]
+		results = Orange.evaluation.testing.cross_validation([ann], data, folds=10)
 
-'''
-for sta in range(2,6):
-	for sto in range(sta+1,7):
+		classes = data.domain.classVar.values
+
+#		print "analyze "+classes[0]+":"
+		cm = scoring.confusion_matrices( results, class_index=0, ignore_weights=False, cutoff=0.5)[0]
+#		print "TP: %i, FP: %i, FN: %s, TN: %i" % (cm.TP, cm.FP, cm.FN, cm.TN)
+
+		if cm.TP/(cm.TP+cm.FP)>highest:
+			highest = cm.TP/(cm.TP+cm.FP)
+
+	print "precision:"+str(highest)
+
+
+
+for sta in range(2,7):
+	for sto in range(sta+1,8):
 		acc(sta,sto)
-'''
-
-acc(2,6)

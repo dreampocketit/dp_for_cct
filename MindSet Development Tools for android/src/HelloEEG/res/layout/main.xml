@@ -4,6 +4,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:text="Connect"
+        android:onClick="doStuff" />
 
     <WebView
         android:layout_width="match_parent"
@@ -18,35 +24,21 @@
             <TextView android:id="@+id/textView1" android:layout_width="fill_parent" android:text="TextView" android:layout_height="fill_parent"></TextView>
     </ScrollView>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Easy"
-            android:id="@+id/button"
-            android:onClick="easyBtn"
-            android:enabled="true"
-            android:width="300dp" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Difficult"
-            android:id="@+id/button"
-            android:onClick="diffBtn"
-            android:enabled="true"
-            android:width="300dp" />
-
-    </LinearLayout>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1"
-        android:text="Connect"
-        android:onClick="doStuff" />
+        android:text="Easy"
+        android:id="@+id/button"
+        android:onClick="easyBtn"
+        android:enabled="true"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Difficult"
+        android:id="@+id/button"
+        android:onClick="diffBtn"
+        android:enabled="true"/>
+
 </LinearLayout>

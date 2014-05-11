@@ -33,7 +33,7 @@ public class HelloEEGActivity extends Activity {
 	TextView tv;
 	Button b;
 
-    String main_url = "http://140.114.136.176";
+    String main_url = "http://192.168.9.101";
 
     List delta_win = new LinkedList();
     List theta_win = new LinkedList();
@@ -182,7 +182,8 @@ public class HelloEEGActivity extends Activity {
     };
 
     public void diffBtn(View view) {
-        String s = "["+delta_win.toString()+","+
+
+        final String s = "["+delta_win.toString()+","+
                     theta_win.toString()+","+
                     lowAlpha_win.toString()+","+
                     highAlpha_win.toString()+","+
@@ -190,12 +191,16 @@ public class HelloEEGActivity extends Activity {
                     highBeta_win.toString()+","+
                     lowGamma_win.toString()+","+
                     midGamma_win.toString()+"]";
+        new Thread(new Runnable() {
+            public void run() {
+                sendData(s,main_url+"/for_android/get_diff_data");
+            }
+        }).start();
 
-        sendData(s,main_url+"/for_android/get_diff_data");
     }
 
     public void easyBtn(View view) {
-        String s = "["+delta_win.toString()+","+
+        final String s = "["+delta_win.toString()+","+
                 theta_win.toString()+","+
                 lowAlpha_win.toString()+","+
                 highAlpha_win.toString()+","+
@@ -203,8 +208,12 @@ public class HelloEEGActivity extends Activity {
                 highBeta_win.toString()+","+
                 lowGamma_win.toString()+","+
                 midGamma_win.toString()+"]";
+        new Thread(new Runnable() {
+            public void run() {
+                sendData(s,main_url+"/for_android/get_easy_data");
+            }
+        }).start();
 
-        sendData(s,main_url+"/for_android/get_easy_data");
     }
     
     public void doStuff(View view) {

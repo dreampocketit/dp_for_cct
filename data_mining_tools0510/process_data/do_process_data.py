@@ -1,6 +1,6 @@
 P_START_TIME=0
-P_STOP_TIME=8
-FILE_NAME = '../subjects/Katrina.csv'
+P_STOP_TIME=7
+FILE_NAME = '../subjects/Katrina-front.csv'
 
 
 
@@ -131,16 +131,18 @@ def power(sta, sto):
 
 
 		######## start of calculating different from initials ##########
-
 		
-		delta_ave1 = cal_ave(0,2,delta)
-		theta_ave1 = cal_ave(0,2,theta)
-		lowalpha_ave1 = cal_ave(0,2,lowalpha)
-		highalpha_ave1 = cal_ave(0,2,highalpha)
-		lowbeta_ave1 = cal_ave(0,2,lowbeta)
-		highbeta_ave1 = cal_ave(0,2,highbeta)
-		lowgamma_ave1 = cal_ave(0,2,lowgamma)
-		midgamma_ave1 = cal_ave(0,2,midgamma)
+		base_sta = 1
+		base_sto = 3
+
+		delta_ave1 = cal_ave(base_sta,base_sto,delta)
+		theta_ave1 = cal_ave(base_sta,base_sto,theta)
+		lowalpha_ave1 = cal_ave(base_sta,base_sto,lowalpha)
+		highalpha_ave1 = cal_ave(base_sta,base_sto,highalpha)
+		lowbeta_ave1 = cal_ave(base_sta,base_sto,lowbeta)
+		highbeta_ave1 = cal_ave(base_sta,base_sto,highbeta)
+		lowgamma_ave1 = cal_ave(base_sta,base_sto,lowgamma)
+		midgamma_ave1 = cal_ave(base_sta,base_sto,midgamma)
 
 		tmp1 = ''
 		for i in range(sta, sto+1):
@@ -153,9 +155,9 @@ def power(sta, sto):
 		
 		######## end of calculating different from initials ##########
 		if str(row['state'])=='easy':
-			f.write(str(0)+'\n')
+			f.write('easy\n')
 		else:
-			f.write(str(1)+'\n')
+			f.write('difficult\n')
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):

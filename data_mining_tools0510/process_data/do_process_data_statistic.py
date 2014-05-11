@@ -164,9 +164,9 @@ def power(sta, sto):
 		######## end of calculating min of all##########
 		
 		if str(row['state'])=='easy':
-			f.write(str(0)+'\n')
+			f.write('easy\n')
 		else:
-			f.write(str(1)+'\n')
+			f.write('difficult\n')
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
