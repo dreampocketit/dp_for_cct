@@ -47,6 +47,7 @@ except:
 	print "neurosky is not connected"
 
 sys_state['next']='yes'
+sys_state['end']='no'
 
 
 
@@ -62,14 +63,24 @@ def get_sys_state(request):
 
 	sys_state['poorSignal'] = object1.poorSignal
 	sys_state['theta'] = object1.theta
-	sys_state['audio_seq'] = audio_seq[int(progress)]
+	if int(progress)==30:
+		sys_state['audio_seq'] = audio_seq[29]
+	else:
+		sys_state['audio_seq'] = audio_seq[int(progress)]
+
 	sys_state['progress'] = progress
 	sys_state['doc_id'] = int(doc_id)
 
-	tmp_ques = ques[audio_seq[int(progress)]-11].split('(')
-	sys_state['quesA'] = tmp_ques[1]
-	sys_state['quesB'] = tmp_ques[2]
-	sys_state['quesC'] = tmp_ques[3]
+	if int(progress)==30:
+		tmp_ques = ques[audio_seq[29]-11].split('(')
+		sys_state['quesA'] = tmp_ques[1]
+		sys_state['quesB'] = tmp_ques[2]
+		sys_state['quesC'] = tmp_ques[3]		
+	else:
+		tmp_ques = ques[audio_seq[int(progress)]-11].split('(')
+		sys_state['quesA'] = tmp_ques[1]
+		sys_state['quesB'] = tmp_ques[2]
+		sys_state['quesC'] = tmp_ques[3]
 
 	print tmp_ques[0]
 
@@ -85,7 +96,7 @@ def start_record(request):
 
 	if progress == 30:
 		print 'No more question'
-
+		sys_state['end']='yes'
 	else:
 		delta = []
 		midgamma = []

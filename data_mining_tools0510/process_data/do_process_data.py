@@ -1,6 +1,6 @@
 P_START_TIME=0
-P_STOP_TIME=7
-FILE_NAME = '../subjects/Jennifer.csv'
+P_STOP_TIME=8
+FILE_NAME = '../subjects/shumin.csv'
 
 
 

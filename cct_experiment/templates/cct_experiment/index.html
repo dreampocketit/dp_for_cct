@@ -176,6 +176,9 @@ function start_listen(){
 
 	$.getJSON("/cct_experiment/get_sys_state", function(data){sys_state = data;});
 	$.getJSON("/cct_experiment/start_record", function(data){});
+	if(sys_state['end']=='yes'){
+		alert('no more queston');
+	}
 
 	document.getElementById("start_button").style.visibility= "hidden" ;
 	document.getElementById("answer_panel").style.visibility= "hidden" ;

@@ -25,9 +25,10 @@ def acc(sta, sto):
 #		print "analyze "+classes[0]+":"
 		cm = scoring.confusion_matrices( results, class_index=0, ignore_weights=False, cutoff=0.5)[0]
 #		print "TP: %i, FP: %i, FN: %s, TN: %i" % (cm.TP, cm.FP, cm.FN, cm.TN)
+		
 
-		if cm.TP/(cm.TP+cm.FP)>highest:
-			highest = cm.TP/(cm.TP+cm.FP)
+#		if cm.TP/(cm.TP+cm.FP)>highest:
+#			highest = cm.TP/(cm.TP+cm.FP)
 
 	print "precision:"+str(highest)
 
