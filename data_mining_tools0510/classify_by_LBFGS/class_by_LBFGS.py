@@ -5,14 +5,14 @@ from Orange import evaluation
 
 def acc(sta,sto):
 	data = Orange.data.Table("../data/power"+str(sta)+'-'+str(sto)+".csv")
+	classes = data.domain.classVar.values
 	#ma = Orange.feature.scoring.score_all(data)
 	print str(sta)+'-'+str(sto)
+	print "analyze "+classes[0]+":"
 	highest = 0
 	for mid_node in range(5,20):
 		ann = Orange.classification.neural.NeuralNetworkLearner(n_mid=mid_node, reg_fact=1, max_iter=200, rand=random, normalize=True)
 		results = Orange.evaluation.testing.cross_validation([ann], data, folds=10)
-
-		classes = data.domain.classVar.values
 
 #		print "analyze "+classes[0]+":"
 		cm = scoring.confusion_matrices( results, class_index=0, ignore_weights=False, cutoff=0.5)[0]

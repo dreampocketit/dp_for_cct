@@ -1,6 +1,6 @@
 P_START_TIME=0
 P_STOP_TIME=7
-FILE_NAME = '../subjects/Katrina-front.csv'
+FILE_NAME = '../subjects/Jennifer.csv'
 
 
 
@@ -74,7 +74,7 @@ def power(sta, sto):
 		lowbeta = [ int(x) for x in lowbeta ]
 
 		
-		######## start of normalizing ##########
+		######## start of normalizing by dividing ##########
 		
 		PLUS = 0
 		DIVIDE = 160000
@@ -95,6 +95,27 @@ def power(sta, sto):
 		lowbeta = row['lowbeta'].split('-')
 		lowbeta = [ int((float(x)/DIVIDE))+PLUS for x in lowbeta ]
 		
+		######## end of normalizing ##########
+
+		######## start of normalizing by log ##########
+		'''
+		delta = row['delta'].split('-')
+		delta = [ np.log(float(x)) for x in delta ]
+		midgamma = row['midgamma'].split('-')
+		midgamma = [ np.log(float(x)) for x in midgamma ]
+		lowgamma = row['lowgamma'].split('-')
+		lowgamma = [ np.log(float(x)) for x in lowgamma ]
+		theta = row['theta'].split('-')
+		theta = [ np.log(float(x)) for x in theta ]
+		highalpha = row['highalpha'].split('-')
+		highalpha = [ np.log(float(x)) for x in highalpha ]
+		lowalpha = row['lowalpha'].split('-')
+		lowalpha = [ np.log(float(x)) for x in lowalpha ]
+		highbeta = row['highbeta'].split('-')
+		highbeta = [ np.log(float(x)) for x in highbeta ]
+		lowbeta = row['lowbeta'].split('-')
+		lowbeta = [ np.log(float(x)) for x in lowbeta ]
+		'''
 		######## end of normalizing ##########
 		
 		tmp = ''
@@ -132,8 +153,9 @@ def power(sta, sto):
 
 		######## start of calculating different from initials ##########
 		
-		base_sta = 1
-		base_sto = 3
+		base_sta = 0
+		base_sto = 2
+		
 
 		delta_ave1 = cal_ave(base_sta,base_sto,delta)
 		theta_ave1 = cal_ave(base_sta,base_sto,theta)

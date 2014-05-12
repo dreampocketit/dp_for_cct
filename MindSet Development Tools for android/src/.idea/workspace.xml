@@ -93,27 +93,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HelloEEGActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/HelloEEG/src/com/test/helloeeg/HelloEEGActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="202" column="14" selection-start="6703" selection-end="6703" vertical-scroll-proportion="0.09356725" vertical-offset="2577" max-vertical-offset="3345">
-              <folding>
-                <element signature="e#6494#6633#0" expanded="true" />
-                <element signature="e#6622#6623#0" expanded="true" />
-                <element signature="e#7075#7214#0" expanded="true" />
-                <element signature="e#7203#7204#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HelloEEG/res/layout/main.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="36" selection-start="433" selection-end="433" vertical-scroll-proportion="4.148148" vertical-offset="277" max-vertical-offset="750">
+            <state line="11" column="36" selection-start="433" selection-end="433" vertical-scroll-proportion="-0.23678647" vertical-offset="277" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
@@ -460,7 +446,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329429" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -507,10 +493,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="30" selection-start="986" selection-end="986" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="3255">
           <folding>
-            <element signature="e#6494#6633#0" expanded="true" />
-            <element signature="e#6622#6623#0" expanded="true" />
-            <element signature="e#7075#7214#0" expanded="true" />
-            <element signature="e#7203#7204#0" expanded="true" />
+            <element signature="e#6495#6634#0" expanded="true" />
+            <element signature="e#6623#6624#0" expanded="true" />
+            <element signature="e#7076#7215#0" expanded="true" />
+            <element signature="e#7204#7205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -789,25 +775,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HelloEEG/src/com/test/helloeeg/HelloEEGActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="42" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.46783626" vertical-offset="0" max-vertical-offset="3345">
+          <folding>
+            <element signature="e#6495#6634#0" expanded="true" />
+            <element signature="e#6623#6624#0" expanded="true" />
+            <element signature="e#7076#7215#0" expanded="true" />
+            <element signature="e#7204#7205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HelloEEG/res/layout/main.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="36" selection-start="433" selection-end="433" vertical-scroll-proportion="4.148148" vertical-offset="277" max-vertical-offset="750">
+        <state line="11" column="36" selection-start="433" selection-end="433" vertical-scroll-proportion="-0.23678647" vertical-offset="277" max-vertical-offset="750">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HelloEEG/src/com/test/helloeeg/HelloEEGActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="14" selection-start="6703" selection-end="6703" vertical-scroll-proportion="0.09356725" vertical-offset="2577" max-vertical-offset="3345">
-          <folding>
-            <element signature="e#6494#6633#0" expanded="true" />
-            <element signature="e#6622#6623#0" expanded="true" />
-            <element signature="e#7075#7214#0" expanded="true" />
-            <element signature="e#7203#7204#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
