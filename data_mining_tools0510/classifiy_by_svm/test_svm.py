@@ -8,6 +8,7 @@ from Orange.classification.svm import SVMLearner, kernels
 from Orange.distance import Euclidean
 from Orange.distance import Hamming
 import orngStat
+import time
 
 
 def acc(sta, sto):
@@ -15,7 +16,7 @@ def acc(sta, sto):
 	print str(sta)+"-"+str(sto)
 	data = Orange.data.Table("../data/power"+str(sta)+"-"+str(sto)+".csv")
 	classes = data.domain.classVar.values
-	print "analyze "+classes[0]+":"
+	print "analyze "+classes[1]+":"
 	highest = 0
 	for i in range(1,101):
 		j=float(i)/100
@@ -23,12 +24,14 @@ def acc(sta, sto):
 		results = testing.cross_validation([learner], data, folds=10)
 #		print scoring.CA(results)
 #		print "analyze "+classes[0]+":"
-		cm = scoring.confusion_matrices( results, class_index=0, ignore_weights=False, cutoff=0.5)[0]
+		cm = scoring.confusion_matrices( results, class_index=1, ignore_weights=False, cutoff=0.5)[0]
 #		print "TP: %i, FP: %i, FN: %s, TN: %i" % (cm.TP, cm.FP, cm.FN, cm.TN)
 		
+		if cm.TP+cm.FP!=0:
+			if cm.TP/(cm.TP+cm.FP)>highest:
+				highest = cm.TP/(cm.TP+cm.FP)
 
-#		if cm.TP/(cm.TP+cm.FP)>highest:
-#			highest = cm.TP/(cm.TP+cm.FP)
+#		time.sleep(0.1)
 
 	print "precision:"+str(highest)
 
