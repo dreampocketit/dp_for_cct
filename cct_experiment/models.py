@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class EEG(models.Model):
@@ -12,5 +13,5 @@ class EEG(models.Model):
 	mid_gamma = models.CharField(max_length=2000)
 	state = models.CharField(max_length=2000)
 	answer = models.CharField(max_length=2000)
-	created = models.DateTimeField(auto_now_add=True)
+	created = models.DateTimeField(datetime.now(), auto_now_add=True)
 	created.editable=True
