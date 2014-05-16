@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('', 
 
-
+	url(r'^admin/', include(admin.site.urls)),
     url(r'^cct_experiment/', include('cct_experiment.urls')),
     url(r'^for_android/', include('for_android.urls')),
 

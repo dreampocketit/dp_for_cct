@@ -7,11 +7,12 @@ import numpy as np
 from NeuroPy import NeuroPy
 import time
 import random
+from cct_experiment.models import EEG
 
 sys_state={}
 object1=NeuroPy("/dev/tty.MindWaveMobile-DevA",57600)
 
-ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/4-answer_sheet.txt'
+ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/1-answer_sheet.txt'
 doc_id = ANSWER_SHEET.split('/')[-1].split('-')[0]
 RECORD_TIME=8
 
@@ -31,11 +32,18 @@ for row in answer_sheet:
 
 ###################### write data ####################
 
-f_out = open('output'+doc_id+'.csv','w')
+f_out = open('output'+doc_id+'.csv','a')
 f_out.write('delta,theta,lowalpha,highalpha,lowbeta,highbeta,lowgamma,midgamma,state,answer\n')
+f_out.close()
 
 ######################################################
 row_data = []
+
+#####################################
+num_fault = 0
+num_diff = 0
+num_fault_diff = 0
+#####################################
 
 
 try:
@@ -94,9 +102,10 @@ def start_record(request):
 	global sys_state
 
 
+	if progress == 29:
+		sys_state['end']='yes'
 	if progress == 30:
 		print 'No more question'
-		sys_state['end']='yes'
 	else:
 		delta = []
 		midgamma = []
@@ -150,9 +159,13 @@ def start_record(request):
 		return HttpResponse(json.dumps(sys_state), content_type="application/json")
 
 def write_data(request):
-	global f_out
 	global row_data
+	global num_diff
+	global num_fault
+	global num_fault_diff
 	print '#############################'
+	f_out = open('output'+doc_id+'.csv','a')
+
 	state = request.GET.get('diff')
 	correct = 'no'
 	if answer[int(audio_seq[progress-1])-11][0] == request.GET.get('ans'):
@@ -160,8 +173,30 @@ def write_data(request):
 	else:
 		correct = 'no'
 
+
 	print request.GET.get('diff')
 	print correct
+
+	if str(request.GET.get('diff')) == 'difficult':
+		num_diff+=1
+	if correct == 'no':
+		num_fault+=1
+	if str(request.GET.get('diff')) == 'difficult' and correct == 'no':
+		num_fault_diff+=1
+		
+	print 'num_diff:'+str(num_diff)
+	print 'num_fault:'+str(num_fault)
+	print 'num_fault_diff:'+str(num_fault_diff)
+
+	tmp_s = ''
+	for ele in row_data:
+		for data in ele[:-1]:
+			tmp_s += str(data)+'-'
+		tmp_s += str(ele[-1])
+		tmp_s += ','
+	eeg = EEG(delta=tmp_s.split(',')[0], theta=tmp_s.split(',')[1], low_alpha=tmp_s.split(',')[2], high_alpha = tmp_s.split(',')[3], low_beta=tmp_s.split(',')[4], high_beta=tmp_s.split(',')[5], low_gamma=tmp_s.split(',')[6], mid_gamma=tmp_s.split(',')[7], state=state, answer=correct )
+	eeg.save()
+
 	for ele in row_data:
 		for data in ele[:-1]:
 			f_out.write(str(data)+'-')
@@ -170,6 +205,7 @@ def write_data(request):
 	f_out.write(state+','+correct+'\n')
 	row_data = []
 	print 'write:'+state+','+correct+'\n'
+	f_out.close()
 	return HttpResponse('successed to server', content_type="application/json")
 
 

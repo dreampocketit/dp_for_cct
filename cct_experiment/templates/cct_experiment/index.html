@@ -153,7 +153,7 @@
         	</div>
         </div>
 		<div id="answer_panel">
-        	<div id="show_ans" style="height:100px; text-align:center; font-size: 300%;">7</div>
+        	<div id="show_ans" style="height:100px; text-align:center; font-size: 300%;">8</div>
         	<div id="ans_layout" >  
 				<INPUT id="a_btn" TYPE="radio" value="Uncheck" onClick="a_btn()"><span id="a_text" class="ans_text">this is a</span></br>
 				<INPUT id="b_btn" TYPE="radio" value="Uncheck" onClick="b_btn()"><span id="b_text" class="ans_text">this is b</span></br>
@@ -241,7 +241,7 @@ function show_difficulty(){
 }
 
 function show_answer(){
-	var time_ans=6
+	var time_ans=7
 	document.getElementById("answer_panel").style.visibility= "visible" ;
 	document.getElementById("a_text").innerHTML=c_a;
 	document.getElementById("b_text").innerHTML=c_b;
@@ -269,7 +269,7 @@ function show_answer(){
 function show_rest(){
 	document.getElementById("rest_panel").style.visibility= "visible" ;
 	var time = window. setTimeout(function(){
-		document.getElementById("show_ans").innerHTML = 7;
+		document.getElementById("show_ans").innerHTML = 8;
 		document.getElementById("show_diff").innerHTML = 3;
 		document.getElementById("a_btn").checked = false;
 		document.getElementById("b_btn").checked = false;
@@ -279,7 +279,7 @@ function show_rest(){
 		document.getElementById("rest_panel").style.visibility= "hidden" ;
 		document.getElementById("show_panel").style.visibility= "visible" ;
 		start_listen();
-	}, 2000);
+	}, 1000);
 }
 
 function easy_btn(){
@@ -296,14 +296,20 @@ function difficult_btn(){
 
 function a_btn(){
 	ans = 'A';
+	document.getElementById("b_btn").checked = false;
+	document.getElementById("c_btn").checked = false;
 }
 
 function b_btn(){
 	ans = 'B';
+	document.getElementById("a_btn").checked = false;
+	document.getElementById("c_btn").checked = false;
 }
 
 function c_btn(){
 	ans = 'C';
+	document.getElementById("a_btn").checked = false;
+	document.getElementById("b_btn").checked = false;
 }
 
 </script>
