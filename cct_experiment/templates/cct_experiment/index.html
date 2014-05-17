@@ -146,14 +146,14 @@
 <div>
 	<div>
     	<div class="diff_button" id="difficulty_panel">
-        	<div id="show_diff" style="height:100px; font-size: 300%;">3</div>
+        	<div id="show_diff" style="height:100px; font-size: 200%;">3seconds left</div>
         	<div id="diff_layout">
         		<div id="easy" class="diff_button" onclick="easy_btn()">easy</div>
             	<div id="difficult" class="diff_button" onclick="difficult_btn()">difficult</div>
         	</div>
         </div>
 		<div id="answer_panel">
-        	<div id="show_ans" style="height:100px; text-align:center; font-size: 300%;">8</div>
+        	<div id="show_ans" style="height:100px; text-align:center; font-size: 200%;">8seconds left</div>
         	<div id="ans_layout" >  
 				<INPUT id="a_btn" TYPE="radio" value="Uncheck" onClick="a_btn()"><span id="a_text" class="ans_text">this is a</span></br>
 				<INPUT id="b_btn" TYPE="radio" value="Uncheck" onClick="b_btn()"><span id="b_text" class="ans_text">this is b</span></br>
@@ -194,7 +194,7 @@ function start_listen(){
 		}
 
 		if(time_listen==6){
-			document.getElementById("bg").innerHTML = '<embed height="0px" width="100" volume="30" src="/static/TOEIC/TOEICTEST'+sys_state['doc_id']+'/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
+			document.getElementById("bg").innerHTML = '<embed height="0px" width="100" volume="30" src="/static/TOEIC-diff/TOEICTEST'+sys_state['doc_id']+'/'+sys_state['doc_id']+'-'+sys_state['audio_seq']+'.mp3">';
 			
 			c_a = sys_state['quesA'];
 			c_b = sys_state['quesB'];
@@ -269,8 +269,8 @@ function show_answer(){
 function show_rest(){
 	document.getElementById("rest_panel").style.visibility= "visible" ;
 	var time = window. setTimeout(function(){
-		document.getElementById("show_ans").innerHTML = 8;
-		document.getElementById("show_diff").innerHTML = 3;
+		document.getElementById("show_ans").innerHTML = '8seconds left';
+		document.getElementById("show_diff").innerHTML = '3seconds left';
 		document.getElementById("a_btn").checked = false;
 		document.getElementById("b_btn").checked = false;
 		document.getElementById("c_btn").checked = false;

@@ -12,7 +12,7 @@ from cct_experiment.models import EEG
 sys_state={}
 object1=NeuroPy("/dev/tty.MindWaveMobile-DevA",57600)
 
-ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/1-answer_sheet.txt'
+ANSWER_SHEET = '/Users/changchengtu/Google Drive/dp_for_cct/cct_experiment/4-answer_sheet.txt'
 doc_id = ANSWER_SHEET.split('/')[-1].split('-')[0]
 RECORD_TIME=8
 

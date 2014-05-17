@@ -1,0 +1,45 @@
+2-3
+analyze difficult:
+precision:0.466666666667
+2-4
+analyze difficult:
+precision:0.5
+2-5
+analyze difficult:
+precision:0.5
+2-6
+analyze difficult:
+precision:0.45
+2-7
+analyze difficult:
+precision:0.32
+3-4
+analyze difficult:
+precision:0.545454545455
+3-5
+analyze difficult:
+precision:0.444444444444
+3-6
+analyze difficult:
+precision:0.428571428571
+3-7
+analyze difficult:
+precision:0.4
+4-5
+analyze difficult:
+precision:0.473684210526
+4-6
+analyze difficult:
+precision:0.545454545455
+4-7
+analyze difficult:
+precision:0.481481481481
+5-6
+analyze difficult:
+precision:0.6
+5-7
+analyze difficult:
+precision:0.533333333333
+6-7
+analyze difficult:
+precision:0.375
