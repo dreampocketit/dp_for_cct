@@ -16,7 +16,7 @@ def acc(sta, sto):
 	print str(sta)+"-"+str(sto)
 	data = Orange.data.Table("../data/power"+str(sta)+"-"+str(sto)+".csv")
 	classes = data.domain.classVar.values
-	print "analyze "+classes[1]+":"
+	print "analyze "+classes[0]+":"
 	highest_precision = 0
 	highest_precision_recall = 0
 	highest_recall = 0
@@ -66,5 +66,5 @@ def acc(sta, sto):
 
 
 for sta in range(2,7):
-	for sto in range(sta+1,8):
+	for sto in range(sta+2,8):
 		acc(sta,sto)

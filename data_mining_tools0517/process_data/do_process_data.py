@@ -1,6 +1,6 @@
 P_START_TIME=0
 P_STOP_TIME=8
-FILE_NAME = '../subjects/Kilo.csv'
+FILE_NAME = '../subjects/Karen.csv'
 
 
 
@@ -176,15 +176,15 @@ def power(sta, sto):
 		f.write(tmp1)
 		
 		######## end of calculating different from initials ##########
-#		if str(row['state'])=='easy':
-#			f.write('easy\n')
-#		else:
-#			f.write('difficult\n')
-
 		if str(row['state'])=='easy':
-			f.write('0\n')
+			f.write('easy\n')
 		else:
-			f.write('1\n')
+			f.write('difficult\n')
+
+#		if str(row['state'])=='easy':
+#			f.write('0\n')
+#		else:
+#			f.write('1\n')
 
 for i in range(P_START_TIME,P_STOP_TIME-1):
 	for j in range(i+1,P_STOP_TIME):
