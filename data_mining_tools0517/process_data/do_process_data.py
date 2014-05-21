@@ -1,6 +1,6 @@
-P_START_TIME=0
+ㄋP_START_TIME=0
 P_STOP_TIME=8
-FILE_NAME = '../subjects/10.csv'
+FILE_NAME = '../subjects/16.csv'
 
 
 
@@ -77,7 +77,7 @@ def power(sta, sto):
 		######## start of normalizing by dividing ##########
 		
 		PLUS = 0
-		DIVIDE = 1
+		DIVIDE = 160000
 		delta = row['delta'].split('-')
 		delta = [ int((float(x)/DIVIDE))+PLUS for x in delta ]
 		midgamma = row['midgamma'].split('-')

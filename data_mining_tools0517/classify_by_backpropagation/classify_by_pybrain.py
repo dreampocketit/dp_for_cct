@@ -80,7 +80,7 @@ for mid_node in range(8,12
 		trainer = BackpropTrainer( fnn, dataset=trndata, momentum=0.01, verbose=True, weightdecay=0.01 )
 
 		#start to train
-		trainer.trainEpochs(200)
+		trainer.trainEpochs(100)
 
 
 		#start to classify data

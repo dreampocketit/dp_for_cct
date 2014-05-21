@@ -41,7 +41,7 @@ def acc(sta, sto):
 		results = testing.cross_validation([learner], data, folds=10)
 #		print scoring.CA(results)
 #		print "analyze "+classes[0]+":"
-		cm = scoring.confusion_matrices( results, class_index=1, ignore_weights=False, cutoff=0.5)[0]
+		cm = scoring.confusion_matrices( results, class_index=0, ignore_weights=False, cutoff=0.50)[0]
 #		print "TP: %i, FP: %i, FN: %s, TN: %i" % (cm.TP, cm.FP, cm.FN, cm.TN)
 		
 		if cm.TP+cm.FP!=0:
@@ -62,9 +62,11 @@ def acc(sta, sto):
 	print 
 
 
+acc(2,6)
+acc(2,7)
 
-
-
-for sta in range(2,7):
-	for sto in range(sta+2,8):
-		acc(sta,sto)
+acc(3,6)
+acc(3,7)
+#for sta in range(3,7):
+#	for sto in range(sta+2,8):
+#		acc(sta,sto)
