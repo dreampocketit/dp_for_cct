@@ -15,7 +15,7 @@ class App:
 
 
     try:
-        object1=NeuroPy("/dev/tty.MindWaveMobile-DevA",57600)
+        object1=NeuroPy("/dev/tty.MindWaveMobile-DevA-1",57600)
     except:
         print 'bluetooth error'
 
