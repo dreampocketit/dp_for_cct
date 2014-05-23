@@ -1,6 +1,9 @@
-P_START_TIME=0
+P_START_TIME=3
 P_STOP_TIME=8
-FILE_NAME = '../subjects/25-rev.csv'
+FILE_NAME = ['01-rev','02-rev','03-rev','04-rev','05-rev','06-rev',
+			'07-rev','08-rev','09-rev','10-rev','11-rev','12-rev','13-rev',
+			'14-rev','15-rev','16-rev','17-rev','18-rev','19-rev','20-rev',
+			'21-rev','22-rev','23-rev','24-rev','25-rev','26-rev']
 
 
 
@@ -34,9 +37,9 @@ def cal_std(sta, sto, arr):
 def cal_ave(sta, sto, arr):
 	return int(np.average(np.array(arr[sta:sto])))
 
-def power(sta, sto):
-	
-	f = open('../data/'+str(FILE_NAME[12:-8])+'-'+str(sta)+'-'+str(sto)+'.csv','w')
+def power(sta, sto, f_n):
+	print f_n
+	f = open('../data/'+str(f_n[12:-8])+'-'+str(sta)+'-'+str(sto)+'.csv','w')
 	'''
 	for i in range(sta, sto+1): 
 		f.write(delta_s+'_'+str(i)+','+theta_s+'_'+str(i)+','+low_alpha_s+'_'+str(i)+','+high_alpha_s+'_'+str(i)+','+\
@@ -54,7 +57,7 @@ def power(sta, sto):
 	f.write('state\n')
 	
 
-	for row in csv.DictReader(open(FILE_NAME,'rU')):
+	for row in csv.DictReader(open(f_n,'rU')):
 		
 		delta = row['delta'].split('-')
 		delta = [ int(x) for x in delta ]
@@ -185,8 +188,8 @@ def power(sta, sto):
 #			f.write('0\n')
 #		else:
 #			f.write('1\n')
-
-for i in range(P_START_TIME,P_STOP_TIME-1):
-	for j in range(i+1,P_STOP_TIME):
-		power(i,j)
-		print 'produce files:'+str(i)+'-'+str(j)
+for f_name in FILE_NAME:
+	for i in range(P_START_TIME,P_STOP_TIME-1):
+		for j in range(i+1,P_STOP_TIME):
+			power(i,j,'../subjects/'+str(f_name)+'.csv')
+			print 'produce files:'+str(i)+'-'+str(j)

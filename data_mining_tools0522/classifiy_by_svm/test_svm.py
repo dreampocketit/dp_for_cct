@@ -10,7 +10,9 @@ from Orange.distance import Hamming
 import orngStat
 import time
 
-subjects = [25]
+subjects = ['01','02','03','04','05','06','07','08','09','10',
+			'11','12','13','14','15','16','17','18','19','20',
+			'21','22','23','24','25','26']
 
 def acc(sta, sto, subject):
 
@@ -56,15 +58,22 @@ def acc(sta, sto, subject):
 				highest_recall_precision = cm.TP/(cm.TP+cm.FP)
 
 #		time.sleep(0.1)
-		
-	return "precision:"+str(format(highest_precision,'.2f'))+ "  recall:   "+str(format(highest_precision_recall,'.2f'))
+
+	return 	format(highest_precision,'.3f'),format(highest_precision_recall,'.3f')
+#	return str(format(highest_precision,'.2f'))+ "\t"+str(format(highest_precision_recall,'.2f'))
 #	print "highest recall   :"+str(highest_recall)+ "  precision:"+str(highest_recall_precision)
 #	print 
 #	print 
-
+fwrite = open('svm_output.csv','w')
+fwrite.write('subject_id,pre5,rec5,pre6,rec6,pre7,rec7\n')
+print 'subject_id\tprec\treca\tprec\treca\tprec\treca'
+print '------------------------------------------------------------------'
 for s in subjects:
-	print 'subject:'+str(s)
-	print acc(3,5,s),'\t', acc(3,6,s),'\t', acc(3,7,s)
+	pre5, rec5 = acc(3,5,s)
+	pre6, rec6 = acc(3,6,s)
+	pre7, rec7 = acc(3,7,s)
+	print 'subject:'+str(s),'\t',pre5,'\t',rec5,'\t',pre6,'\t',rec6,'\t',pre7,'\t',rec7
+	fwrite.write('subject:'+str(s)+','+str(pre5)+','+str(rec5)+','+str(pre6)+','+str(rec6)+','+str(pre7)+','+str(rec7)+'\n')
 #for sta in range(3,7):
 #	for sto in range(sta+2,8):
 #		acc(sta,sto)
