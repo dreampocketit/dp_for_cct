@@ -1,6 +1,6 @@
 P_START_TIME=0
 P_STOP_TIME=8
-FILE_NAME = '../subjects/20.csv'
+FILE_NAME = '../subjects/25-rev.csv'
 
 
 
@@ -36,7 +36,7 @@ def cal_ave(sta, sto, arr):
 
 def power(sta, sto):
 	
-	f = open('../data/'+str(FILE_NAME[12:-4])+'-'+str(sta)+'-'+str(sto)+'.csv','w')
+	f = open('../data/'+str(FILE_NAME[12:-8])+'-'+str(sta)+'-'+str(sto)+'.csv','w')
 	'''
 	for i in range(sta, sto+1): 
 		f.write(delta_s+'_'+str(i)+','+theta_s+'_'+str(i)+','+low_alpha_s+'_'+str(i)+','+high_alpha_s+'_'+str(i)+','+\

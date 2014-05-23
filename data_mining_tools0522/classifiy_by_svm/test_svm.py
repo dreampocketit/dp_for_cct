@@ -10,7 +10,7 @@ from Orange.distance import Hamming
 import orngStat
 import time
 
-subjects = [20]
+subjects = [25]
 
 def acc(sta, sto, subject):
 
@@ -42,7 +42,7 @@ def acc(sta, sto, subject):
 		results = testing.cross_validation([learner], data, folds=10)
 #		print scoring.CA(results)
 #		print "analyze "+classes[0]+":"
-		cm = scoring.confusion_matrices( results, class_index=0, ignore_weights=False, cutoff=0.55)[0]
+		cm = scoring.confusion_matrices( results, class_index=0, ignore_weights=False, cutoff=0.50)[0]
 #		print "TP: %i, FP: %i, FN: %s, TN: %i" % (cm.TP, cm.FP, cm.FN, cm.TN)
 		
 		if cm.TP+cm.FP!=0:
