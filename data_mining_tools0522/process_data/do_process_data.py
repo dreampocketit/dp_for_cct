@@ -1,11 +1,11 @@
 P_START_TIME=3
 P_STOP_TIME=8
-FILE_NAME = ['01-rev','02-rev','03-rev','04-rev','05-rev','06-rev',
-			'07-rev','08-rev','09-rev','10-rev','11-rev','12-rev','13-rev',
-			'14-rev','15-rev','16-rev','17-rev','18-rev','19-rev','20-rev',
-			'21-rev','22-rev','23-rev','24-rev','25-rev','26-rev','27-rev',
-			'28-rev','29-rev','30-rev','31-rev','32-rev','33-rev']
-#FILE_NAME = ['31-rev']
+#FILE_NAME = ['01-rev','02-rev','03-rev','04-rev','05-rev','06-rev',
+#			'07-rev','08-rev','09-rev','10-rev','11-rev','12-rev','13-rev',
+#			'14-rev','15-rev','16-rev','17-rev','18-rev','19-rev','20-rev',
+#			'21-rev','22-rev','23-rev','24-rev','25-rev','26-rev','27-rev',
+#			'28-rev','29-rev','30-rev','31-rev','32-rev','33-rev']
+FILE_NAME = ['32-rev']
 
 
 import csv
@@ -180,6 +180,7 @@ def power(sta, sto, f_n):
 					str(lowalpha[i]-lowalpha_ave1)+','+str(highalpha[i]-highalpha_ave1)+','+\
 					str(lowbeta[i]-lowbeta_ave1)+','+str(highbeta[i]-highbeta_ave1)+','+\
 					str(lowgamma[i]-lowgamma_ave1)+','+str(midgamma[i]-midgamma_ave1)+','
+			print delta_ave1
 		
 		f.write(tmp1)
 		

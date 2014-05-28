@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EEG and Learning</title>
+<script type="text/javascript" src="jquery-2.1.0.js"></script>
+<style>
+.ans_button{
+
+	background-color: #1A25E7; 
+	width: 300px; 
+	height: 40px;
+	cursor: pointer;
+	border: 2px solid #060606; 
+	border-radius: 5px; 
+	background-color: #E41D21; 
+	
+}
+
+.diff_button{
+	margin-top:40px;
+	float:left; 
+	background-color: #1A25E7; 
+	width: 200px; 
+	height: 100px;
+	border: 2px solid #060606; 
+	border-radius: 5px; 
+	background-color: #E41D21;
+	cursor: pointer;
+	
+}
+
+#diff_layout{
+	margin: 0 auto; 
+	width:408px;
+}
+
+#ans_layout{
+	margin: 0 auto;
+	margin-top:40px; 
+	width:304px;
+}
+
+#start_button{
+	width: 130px; 
+	height: 50px;  
+	margin:0 auto;
+	margin-top:80px;
+	text-align: center; 
+	font-size: larger; 
+	cursor: pointer;   
+	border: 2px solid #060606; 
+	border-radius: 5px; 
+	background-color: #E41D21;
+}
+
+#start_button:hover {
+    background-color: yellow; 
+}
+
+#show{
+	height: 300px; 
+	float: none; 
+	background-color: #F0E810; 
+	font-size: xx-large; 
+	text-align: center; 
+	border-width: 10px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="show"> 
+	show panel
+	<div id="start_button" class="button" onclick="start_listen()" > start</div>
+</div>
+
+<div style="height: 300px; float: none; background-color: #3DEBE2;">control panel  
+	<div>
+    	<div id="difficulty" style="float: left; background-color: #43E71B; width: 50%; height: 300px;">difficulty choices
+        	<div id="diff_layout">
+        		<div id="easy" class="diff_button">easy</div>
+            	<div id="difficult" class="diff_button">difficult</div>
+        	</div>
+        </div>
+		<div id="answer" style="float: right; background-color: #D51ACF; width: 50%; height: 300px">answer choices
+        	<div id="ans_layout">
+       		  <div id="a" class="ans_button">A</div>
+           	  <div id="b" class="ans_button">B</div>
+           	  <div id="c" class="ans_button">C</div>
+       	  </div>
+      </div>
+  </div>
+</div>
+
+<script>
+
+var system_state = "uninitial"
+
+function start_listen(){
+	$.getJSON("http://time.jsontest.com", function(data){
+    	alert(data);
+	});
+	document.getElementById("answer").style.visibility= "hidden" ;
+	document.getElementById("difficulty").style.visibility= "hidden" ;
+	var time_listen=7
+	var time = window.setInterval(function(){
+		document.getElementById("show").innerHTML = time_listen;
+		time_listen=time_listen-1;
+		if (time_listen==-1){
+  			time_listen==3;
+	
+			window.clearInterval(time)
+			show_difficulty()		
+  		}
+	},1000);	
+	
+}
+
+
+function show_difficulty(){
+	var time_diff=3
+	document.getElementById("difficulty").style.visibility= "visible" ;
+	var time = window.setInterval(function(){
+		document.getElementById("show").innerHTML = time_diff;
+		time_diff=time_diff-1;
+		if (time_diff==-1){
+  			time_diff==3;
+			document.getElementById("difficulty").style.visibility= "hidden" ;
+			
+			window.clearInterval(time)
+			show_answer()
+			
+  		}
+	},1000);	
+}
+
+function show_answer(){
+	var time_ans=10
+	document.getElementById("answer").style.visibility= "visible" ;
+	var time = window.setInterval(function(){
+		document.getElementById("show").innerHTML = time_ans;
+		time_ans=time_ans-1;
+		if (time_ans==-1){
+  			time_ans==3;
+			document.getElementById("answer").style.visibility= "hidden" ;
+			
+			window.clearInterval(time)
+			
+  		}
+	},1000);	
+}
+</script>
+
+</body>
+</html>
+

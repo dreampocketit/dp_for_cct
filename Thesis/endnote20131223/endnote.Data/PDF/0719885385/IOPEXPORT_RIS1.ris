@@ -1,0 +1,631 @@
+
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/11/i=3/a=036004
+T1  - An optimized ERP brain–computer interface based on facial expression changes
+A1  - Jing Jin and Ian Daly and Yu Zhang and Xingyu Wang and Andrzej Cichocki
+Y1  - 2014
+SP  - 036004
+JF  - Journal of Neural Engineering
+VL  - 11
+IS  - 3
+SN  - 1741-2552
+N2  - Objective . Interferences from spatially adjacent non-target stimuli are known to evoke
+event-related potentials (ERPs) during non-target flashes and, therefore, lead to false positives.
+This phenomenon was commonly seen in visual attention-based brain–computer interfaces (BCIs) using
+conspicuous stimuli and is known to adversely affect the performance of BCI systems. Although users
+try to focus on the target stimulus, they cannot help but be affected by conspicuous changes of the
+stimuli (such as flashes or presenting images) which were adjacent to the target stimulus.
+Furthermore, subjects have reported that conspicuous stimuli made them tired and annoyed. In view of
+this, the aim of this study was to reduce adjacent interference, annoyance and fatigue using a new
+stimulus presentation pattern based upon facial expression changes. Our goal was not to design a new
+pattern which could evoke larger ERPs than the face pattern, but to design a new pattern which could
+reduce adjacent interference, annoyance and fatigue, and evoke ERPs as good as those observed during
+the face pattern. Approach . Positive facial expressions could be changed to negative facial
+expressions by minor changes to the original facial image. Although the changes are minor, the
+contrast is big enough to evoke strong ERPs. In this paper, a facial expression change pattern
+between positive and negative facial expressions was used to attempt to minimize interference
+effects. This was compared against two different conditions, a shuffled pattern containing the same
+shapes and colours as the facial expression change pattern, but without the semantic content
+associated with a change in expression, and a face versus no face pattern. Comparisons were made in
+terms of classification accuracy and information transfer rate as well as user supplied subjective
+measures. Main results . The results showed that interferences from adjacent stimuli, annoyance and
+the fatigue experienced by the subjects could be reduced significantly ( p < 0.05) by using the
+facial expression change patterns in comparison with the face pattern. The offline results show that
+the classification accuracy of the facial expression change pattern was significantly better than
+that of the shuffled pattern ( p < 0.05) and the face pattern ( p < 0.05). Significance . The facial
+expression change pattern presented in this paper reduced interference from adjacent stimuli and
+decreased the fatigue and annoyance experienced by BCI users significantly ( p < 0.05) compared to
+the face pattern.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/10/i=6/a=066005
+T1  - Towards autonomous neuroprosthetic control using Hebbian reinforcement learning
+A1  - Babak Mahmoudi and Eric A Pohlmeyer and Noeline W Prins and Shijia Geng and Justin C Sanchez
+Y1  - 2013
+SP  - 066005
+JF  - Journal of Neural Engineering
+VL  - 10
+IS  - 6
+SN  - 1741-2552
+N2  - Objective . Our goal was to design an adaptive neuroprosthetic controller that could learn the
+mapping from neural states to prosthetic actions and automatically adjust adaptation using only a
+binary evaluative feedback as a measure of desirability/undesirability of performance. Approach .
+Hebbian reinforcement learning (HRL) in a connectionist network was used for the design of the
+adaptive controller. The method combines the efficiency of supervised learning with the generality
+of reinforcement learning. The convergence properties of this approach were studied using both
+closed-loop control simulations and open-loop simulations that used primate neural data from
+robot-assisted reaching tasks. Main results . The HRL controller was able to perform classification
+and regression tasks using its episodic and sequential learning modes, respectively. In our
+experiments, the HRL controller quickly achieved convergence to an effective control policy,
+followed by robust performance. The controller also automatically stopped adapting the parameters
+after converging to a satisfactory control policy. Additionally, when the input neural vector was
+reorganized, the controller resumed adaptation to maintain performance. Significance . By estimating
+an evaluative feedback directly from the user, the HRL control algorithm may provide an efficient
+method for autonomous adaptation of neuroprosthetic systems. This method may enable the user to
+teach the controller the desired behavior using only a simple feedback signal.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/10/i=5/a=056020
+T1  - Hidden Markov model and support vector machine based decoding of finger movements using
+electrocorticography
+A1  - Tobias Wissel and Tim Pfeiffer and Robert Frysch and Robert T Knight and Edward F Chang and Hermann Hinrichs and Jochem W
+Rieger and Georg Rose
+Y1  - 2013
+SP  - 056020
+JF  - Journal of Neural Engineering
+VL  - 10
+IS  - 5
+SN  - 1741-2552
+N2  - Objective . Support vector machines (SVM) have developed into a gold standard for accurate
+classification in brain–computer interfaces (BCI). The choice of the most appropriate classifier for
+a particular application depends on several characteristics in addition to decoding accuracy. Here
+we investigate the implementation of hidden Markov models (HMM) for online BCIs and discuss
+strategies to improve their performance. Approach . We compare the SVM, serving as a reference, and
+HMMs for classifying discrete finger movements obtained from electrocorticograms of four subjects
+performing a finger tapping experiment. The classifier decisions are based on a subset of
+low-frequency time domain and high gamma oscillation features. Main results . We show that decoding
+optimization between the two approaches is due to the way features are extracted and selected and
+less dependent on the classifier. An additional gain in HMM performance of up to 6% was obtained by
+introducing model constraints. Comparable accuracies of up to 90% were achieved with both SVM and
+HMM with the high gamma cortical response providing the most important decoding information for both
+techniques. Significance . We discuss technical HMM characteristics and adaptations in the context
+of the presented data as well as for general BCI applications. Our findings suggest that HMMs and
+their characteristics are promising for efficient online BCIs.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/10/i=5/a=056015
+T1  - Detection and classification of movement-related cortical potentials associated with task force and
+speed
+A1  - Mads Jochumsen and Imran Khan Niazi and Natalie Mrachacz-Kersting and Dario Farina and Kim Dremstrup
+Y1  - 2013
+SP  - 056015
+JF  - Journal of Neural Engineering
+VL  - 10
+IS  - 5
+SN  - 1741-2552
+N2  - Objective. In this study, the objective was to detect movement intentions and extract different
+levels of force and speed of the intended movement from scalp electroencephalography (EEG). We then
+estimated the performance of the closed loop system. Approach. Cued movements were detected from
+continuous EEG recordings using a template of the initial phase of the movement-related cortical
+potential in 12 healthy subjects. The temporal features, extracted from the movement intention, were
+classified with an optimized support vector machine. The system performance was evaluated when
+combining detection with classification. Main results. The system detected 81% of the movements and
+correctly classified 75 ± 9% and 80 ± 10% of these at the point of detection when varying the force
+and speed, respectively. When the detector was combined with the classifier, the system detected and
+correctly classified 64 ± 13% and 67 ± 13% of these movements. The system detected and incorrectly
+classified 21 ± 7% and 16 ± 9% of the movements. The movements were detected 317 ± 73 ms before the
+movement onset. Significance. The results indicate that it is possible to detect movement intentions
+with limited latencies, and extract and classify different levels of force and speed, which may be
+combined with assistive technologies for patient-driven neurorehabilitation.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/10/i=3/a=036007
+T1  - Dynamically weighted ensemble classification for non-stationary EEG processing
+A1  - Sidath Ravindra Liyanage and Cuntai Guan and Haihong Zhang and Kai Keng Ang and JianXin Xu and Tong Heng Lee
+Y1  - 2013
+SP  - 036007
+JF  - Journal of Neural Engineering
+VL  - 10
+IS  - 3
+SN  - 1741-2552
+N2  - Objective. The non-stationary nature of EEG poses a major challenge to robust operation of
+brain–computer interfaces (BCIs). The objective of this paper is to propose and investigate a
+computational method to address non-stationarity in EEG classification. Approach. We developed a
+novel dynamically weighted ensemble classification (DWEC) framework whereby an ensemble of multiple
+classifiers are trained on clustered features. The decisions from these multiple classifiers are
+dynamically combined based on the distances of the cluster centres to each test data sample being
+classified. Main Results. The clusters of the feature space from the second session spanned a
+different space compared to the clusters of the feature space from the first session which
+highlights the processes of session-to-session non-stationarity. The session-to-session performance
+of the proposed DWEC method was evaluated on two datasets. The results on publicly available BCI
+Competition IV dataset 2A yielded a significantly higher mean accuracy of 81.48% compared to 75.9%
+from the baseline support vector machine (SVM) classifier without dynamic weighting. Results on the
+data collected from our twelve in-house subjects yielded a significantly higher mean accuracy of 73%
+compared to 69.4% from the baseline SVM classifier without dynamic weighting. Significance. The
+cluster based analysis provides insight into session-to-session non-stationarity in EEG data. The
+results demonstrate the effectiveness of the proposed method in addressing non-stationarity in EEG
+data for the operation of a BCI.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/10/i=1/a=016005
+T1  - Towards a hemodynamic BCI using transcranial Doppler without user-specific training data
+A1  - Idris Aleem and Tom Chau
+Y1  - 2013
+SP  - 016005
+JF  - Journal of Neural Engineering
+VL  - 10
+IS  - 1
+SN  - 1741-2552
+N2  - Transcranial Doppler (TCD) was recently introduced as a new brain–computer interface (BCI) modality
+for detecting task-induced hemispheric lateralization. To date, single-trial discrimination between
+a lateralized mental activity and a rest state has been demonstrated with long (45 s) activation
+time periods. However, the possibility of detecting successive activations in a user-independent
+framework (i.e. without training data from the user) remains an open question. Objective. The
+objective of this research was to assess TCD-based detection of lateralized mental activity with a
+user-independent classifier. In so doing, we also investigated the accuracy of detecting successive
+lateralizations. Approach. TCD data from 18 participants were collected during verbal fluency,
+mental rotation tasks and baseline counting tasks. Linear discriminant analysis and a set of four
+time-domain features were used to classify successive left and right brain activations. Main
+results. In a user-independent framework, accuracies up to 74.6 ± 12.6% were achieved using training
+data from a single participant, and lateralization task durations of 18 s. Significance.
+Subject-independent, algorithmic classification of TCD signals corresponding to successive brain
+lateralization may be a feasible paradigm for TCD-BCI design.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/9/i=5/a=056009
+T1  - A new feature extraction method for signal classification applied to cord dorsum potential detection
+A1  - D Vidaurre and E E Rodríguez and C Bielza and P Larrañaga and P Rudomin
+Y1  - 2012
+SP  - 056009
+JF  - Journal of Neural Engineering
+VL  - 9
+IS  - 5
+SN  - 1741-2552
+N2  - In the spinal cord of the anesthetized cat, spontaneous cord dorsum potentials (CDPs) appear
+synchronously along the lumbo-sacral segments. These CDPs have different shapes and magnitudes.
+Previous work has indicated that some CDPs appear to be specially associated with the activation of
+spinal pathways that lead to primary afferent depolarization and presynaptic inhibition. Visual
+detection and classification of these CDPs provides relevant information on the functional
+organization of the neural networks involved in the control of sensory information and allows the
+characterization of the changes produced by acute nerve and spinal lesions. We now present a novel
+feature extraction approach for signal classification, applied to CDP detection. The method is based
+on an intuitive procedure. We first remove by convolution the noise from the CDPs recorded in each
+given spinal segment. Then, we assign a coefficient for each main local maximum of the signal using
+its amplitude and distance to the most important maximum of the signal. These coefficients will be
+the input for the subsequent classification algorithm. In particular, we employ gradient boosting
+classification trees. This combination of approaches allows a faster and more accurate
+discrimination of CDPs than is obtained by other methods.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/9/i=5/a=056002
+T1  - Sparse representation-based classification scheme for motor imagery-based brain–computer interface
+systems
+A1  - Younghak Shin and Seungchan Lee and Junho Lee and Heung-No Lee
+Y1  - 2012
+SP  - 056002
+JF  - Journal of Neural Engineering
+VL  - 9
+IS  - 5
+SN  - 1741-2552
+N2  - Motor imagery (MI)-based brain–computer interface systems (BCIs) normally use a powerful spatial
+filtering and classification method to maximize their performance. The common spatial pattern (CSP)
+algorithm is a widely used spatial filtering method for MI-based BCIs. In this work, we propose a
+new sparse representation-based classification (SRC) scheme for MI-based BCI applications.
+Sensorimotor rhythms are extracted from electroencephalograms and used for classification. The
+proposed SRC method utilizes the frequency band power and CSP algorithm to extract features for
+classification. We analyzed the performance of the new method using experimental datasets. The
+results showed that the SRC scheme provides highly accurate classification results, which were
+better than those obtained using the well-known linear discriminant analysis classification method.
+The enhancement of the proposed method in terms of the classification accuracy was verified using
+cross-validation and a statistical paired t -test ( p < 0.001).
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/9/i=4/a=045012
+T1  - A comparison of classification techniques for a gaze-independent P300-based brain–computer interface
+A1  - F Aloise and F Schettini and P Aricò and S Salinari and F Babiloni and F Cincotti
+Y1  - 2012
+SP  - 045012
+JF  - Journal of Neural Engineering
+VL  - 9
+IS  - 4
+SN  - 1741-2552
+N2  - This off-line study aims to assess the performance of five classifiers commonly used in the
+brain–computer interface (BCI) community, when applied to a gaze-independent P300-based BCI. In
+particular, we compared the results of four linear classifiers and one nonlinear: Fisher's linear
+discriminant analysis (LDA), stepwise linear discriminant analysis (SWLDA), Bayesian linear
+discriminant analysis (BLDA), linear support vector machine (LSVM) and Gaussian supported vector
+machine (GSVM). Moreover, different values for the decimation of the training dataset were tested.
+The results were evaluated both in terms of accuracy and written symbol rate with the data of 19
+healthy subjects. No significant differences among the considered classifiers were found. The
+optimal decimation factor spanned a range from 3 to 24 (12 to 94 ms long bins). Nevertheless,
+performance on individually optimized classification parameters is not significantly different from
+a classification with general parameters (i.e. using an LDA classifier, about 48 ms long bins).
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/9/i=4/a=045008
+T1  - Estimating workload using EEG spectral power and ERPs in the n-back task
+A1  - Anne-Marie Brouwer and Maarten A Hogervorst and Jan B F van Erp and Tobias Heffelaar and Patrick H Zimmerman and Robert
+Oostenveld
+Y1  - 2012
+SP  - 045008
+JF  - Journal of Neural Engineering
+VL  - 9
+IS  - 4
+SN  - 1741-2552
+N2  - Previous studies indicate that both electroencephalogram (EEG) spectral power (in particular the
+alpha and theta band) and event-related potentials (ERPs) (in particular the P300) can be used as a
+measure of mental work or memory load. We compare their ability to estimate workload level in a
+well-controlled task. In addition, we combine both types of measures in a single classification
+model to examine whether this results in higher classification accuracy than either one alone.
+Participants watched a sequence of visually presented letters and indicated whether or not the
+current letter was the same as the one ( n instances) before. Workload was varied by varying n . We
+developed different classification models using ERP features, frequency power features or a
+combination (fusion). Training and testing of the models simulated an online workload estimation
+situation. All our ERP, power and fusion models provide classification accuracies between 80% and
+90% when distinguishing between the highest and the lowest workload condition after 2 min. For 32
+out of 35 participants, classification was significantly higher than chance level after 2.5 s (or
+one letter) as estimated by the fusion model. Differences between the models are rather small,
+though the fusion model performs better than the other models when only short data segments are
+available for estimating workload.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/9/i=4/a=045001
+T1  - Eye-gaze independent EEG-based brain–computer interfaces for communication
+A1  - A Riccio and D Mattia and L Simione and M Olivetti and F Cincotti
+Y1  - 2012
+SP  - 045001
+JF  - Journal of Neural Engineering
+VL  - 9
+IS  - 4
+SN  - 1741-2552
+N2  - The present review systematically examines the literature reporting gaze independent interaction
+modalities in non-invasive brain–computer interfaces (BCIs) for communication. BCIs measure signals
+related to specific brain activity and translate them into device control signals. This technology
+can be used to provide users with severe motor disability (e.g. late stage amyotrophic lateral
+sclerosis (ALS); acquired brain injury) with an assistive device that does not rely on muscular
+contraction. Most of the studies on BCIs explored mental tasks and paradigms using visual modality.
+Considering that in ALS patients the oculomotor control can deteriorate and also other potential
+users could have impaired visual function, tactile and auditory modalities have been investigated
+over the past years to seek alternative BCI systems which are independent from vision. In addition,
+various attentional mechanisms, such as covert attention and feature-directed attention, have been
+investigated to develop gaze independent visual-based BCI paradigms. Three areas of research were
+considered in the present review: (i) auditory BCIs, (ii) tactile BCIs and (iii) independent visual
+BCIs. Out of a total of 130 search results, 34 articles were selected on the basis of pre-defined
+exclusion criteria. Thirteen articles dealt with independent visual BCIs, 15 reported on auditory
+BCIs and the last six on tactile BCIs, respectively. From the review of the available literature, it
+can be concluded that a crucial point is represented by the trade-off between BCI systems/paradigms
+with high accuracy and speed, but highly demanding in terms of attention and memory load, and
+systems requiring lower cognitive effort but with a limited amount of communicable information.
+These issues should be considered as priorities to be explored in future studies to meet users’
+requirements in a real-life scenario.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/9/i=3/a=036008
+T1  - Stimulus specificity of a steady-state visual-evoked potential-based brain–computer interface
+A1  - Kian B Ng and Andrew P Bradley and Ross Cunnington
+Y1  - 2012
+SP  - 036008
+JF  - Journal of Neural Engineering
+VL  - 9
+IS  - 3
+SN  - 1741-2552
+N2  - The mechanisms of neural excitation and inhibition when given a visual stimulus are well studied. It
+has been established that changing stimulus specificity such as luminance contrast or spatial
+frequency can alter the neuronal activity and thus modulate the visual-evoked response. In this
+paper, we study the effect that stimulus specificity has on the classification performance of a
+steady-state visual-evoked potential-based brain–computer interface (SSVEP-BCI). For example, we
+investigate how closely two visual stimuli can be placed before they compete for neural
+representation in the cortex and thus influence BCI classification accuracy. We characterize
+stimulus specificity using the four stimulus parameters commonly encountered in SSVEP-BCI design:
+temporal frequency, spatial size, number of simultaneously displayed stimuli and their spatial
+proximity. By varying these quantities and measuring the SSVEP-BCI classification accuracy, we are
+able to determine the parameters that provide optimal performance. Our results show that superior
+SSVEP-BCI accuracy is attained when stimuli are placed spatially more than 5° apart, with size that
+subtends at least 2° of visual angle, when using a tagging frequency of between high alpha and beta
+band. These findings may assist in deciding the stimulus parameters for optimal SSVEP-BCI design.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1742-6596/332/i=1/a=012025
+T1  - Evaluation of LDA Ensembles Classifiers for Brain Computer Interface
+A1  - Cristian Arjona and José Pentácolo and Iván Gareis and Yanina Atum and Gerardo Gentiletti and Rubén Acevedo and Leonardo
+Rufiner
+Y1  - 2011
+SP  - 012025
+JF  - Journal of Physics: Conference Series
+VL  - 332
+IS  - 1
+SN  - 1742-6596
+N2  - The Brain Computer Interface (BCI) translates brain activity into computer commands. To increase the
+performance of the BCI, to decode the user intentions it is necessary to get better the feature
+extraction and classification techniques. In this article the performance of a three linear
+discriminant analysis (LDA) classifiers ensemble is studied. The system based on ensemble can
+theoretically achieved better classification results than the individual counterpart, regarding
+individual classifier generation algorithm and the procedures for combine their outputs. Classic
+algorithms based on ensembles such as bagging and boosting are discussed here. For the application
+on BCI, it was concluded that the generated results using ER and AUC as performance index do not
+give enough information to establish which configuration is better.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1742-6596/332/i=1/a=012021
+T1  - On the use of LDA performance as a metric of feature extraction methods for a P300 BCI
+classification task
+A1  - Iván Gareis and Yanina Atum and Gerardo Gentiletti and Rubén Acevedo and Verónica Medina Bañuelos and Leonardo Rufiner
+Y1  - 2011
+SP  - 012021
+JF  - Journal of Physics: Conference Series
+VL  - 332
+IS  - 1
+SN  - 1742-6596
+N2  - Brain computer interfaces (BCIs) translate brain activity into computer commands. To enhance the
+performance of a BCI, it is necessary to improve the feature extraction techniques being applied to
+decode the users' intentions. Objective comparison methods are needed to analyze different feature
+extraction techniques. One possibility is to use the classifier performance as a comparative
+measure. In this work the effect of several variables that affect the behaviour of linear
+discriminant analysis (LDA) has been studied when used to distinguish between
+electroencephalographic signals with and without the presence of event related potentials (ERPs).
+The error rate (ER) and the area under the receiver operating characteristic curve (AUC) were used
+as performance estimators of LDA. The results show that the number of characteristics, the degree of
+balance of the training patterns set and the number of averaged trials affect the classifier's
+performance and therefore, must be considered in the design of the integrated system.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/8/i=5/a=056016
+T1  - Flashing characters with famous faces improves ERP-based brain–computer interface performance
+A1  - T Kaufmann and S M Schulz and C Grünzinger and A Kübler
+Y1  - 2011
+SP  - 056016
+JF  - Journal of Neural Engineering
+VL  - 8
+IS  - 5
+SN  - 1741-2552
+N2  - Currently, the event-related potential (ERP)-based spelling device, often referred to as
+P300-Speller, is the most commonly used brain–computer interface (BCI) for enhancing communication
+of patients with impaired speech or motor function. Among numerous improvements, a most central
+feature has received little attention, namely optimizing the stimulus used for eliciting ERPs.
+Therefore we compared P300-Speller performance with the standard stimulus (flashing characters)
+against performance with stimuli known for eliciting particularly strong ERPs due to their
+psychological salience, i.e. flashing familiar faces transparently superimposed on characters. Our
+results not only indicate remarkably increased ERPs in response to familiar faces but also improved
+P300-Speller performance due to a significant reduction of stimulus sequences needed for correct
+character classification. These findings demonstrate a promising new approach for improving the
+speed and thus fluency of BCI-enhanced communication with the widely used P300-Speller.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/8/i=5/a=056004
+T1  - sw-SVM: sensor weighting support vector machines for EEG-based brain–computer interfaces
+A1  - N Jrad and M Congedo and R Phlypo and S Rousseau and R Flamary and F Yger and A Rakotomamonjy
+Y1  - 2011
+SP  - 056004
+JF  - Journal of Neural Engineering
+VL  - 8
+IS  - 5
+SN  - 1741-2552
+N2  - In many machine learning applications, like brain–computer interfaces (BCI), high-dimensional sensor
+array data are available. Sensor measurements are often highly correlated and signal-to-noise ratio
+is not homogeneously spread across sensors. Thus, collected data are highly variable and
+discrimination tasks are challenging. In this work, we focus on sensor weighting as an efficient
+tool to improve the classification procedure. We present an approach integrating sensor weighting in
+the classification framework. Sensor weights are considered as hyper-parameters to be learned by a
+support vector machine (SVM). The resulting sensor weighting SVM (sw-SVM) is designed to satisfy a
+margin criterion, that is, the generalization error. Experimental studies on two data sets are
+presented, a P300 data set and an error-related potential (ErrP) data set. For the P300 data set
+(BCI competition III), for which a large number of trials is available, the sw-SVM proves to perform
+equivalently with respect to the ensemble SVM strategy that won the competition. For the ErrP data
+set, for which a small number of trials are available, the sw-SVM shows superior performances as
+compared to three state-of-the art approaches. Results suggest that the sw-SVM promises to be useful
+in event-related potentials classification, even with a small number of training trials.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/8/i=3/a=036025
+T1  - Closing the loop in cortically-coupled computer vision: a brain–computer interface for searching
+image databases
+A1  - Eric A Pohlmeyer and Jun Wang and David C Jangraw and Bin Lou and Shih-Fu Chang and Paul Sajda
+Y1  - 2011
+SP  - 036025
+JF  - Journal of Neural Engineering
+VL  - 8
+IS  - 3
+SN  - 1741-2552
+N2  - We describe a closed-loop brain–computer interface that re-ranks an image database by iterating
+between user generated 'interest' scores and computer vision generated visual similarity measures.
+The interest scores are based on decoding the electroencephalographic (EEG) correlates of target
+detection, attentional shifts and self-monitoring processes, which result from the user paying
+attention to target images interspersed in rapid serial visual presentation (RSVP) sequences. The
+highest scored images are passed to a semi-supervised computer vision system that reorganizes the
+image database accordingly, using a graph-based representation that captures visual similarity
+between images. The system can either query the user for more information, by adaptively resampling
+the database to create additional RSVP sequences, or it can converge to a 'done' state. The done
+state includes a final ranking of the image database and also a 'guess' of the user's chosen
+category of interest. We find that the closed-loop system's re-rankings can substantially expedite
+database searches for target image categories chosen by the subjects. Furthermore, better
+reorganizations are achieved than by relying on EEG interest rankings alone, or if the system were
+simply run in an open loop format without adaptive resampling.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/8/i=3/a=036007
+T1  - Adaptive tracking of discriminative frequency components in electroencephalograms for a robust
+brain–computer interface
+A1  - Kavitha P Thomas and Cuntai Guan and Chiew Tong Lau and A P Vinod and Kai Keng Ang
+Y1  - 2011
+SP  - 036007
+JF  - Journal of Neural Engineering
+VL  - 8
+IS  - 3
+SN  - 1741-2552
+N2  - In an electroencephalogram (EEG)-based brain–computer interface (BCI), motor imagery has been
+successfully used as a communication strategy. Motor imagery causes detectable amplitude changes in
+certain frequency bands of EEGs, which are dubbed event-related desynchronization\synchronization.
+The frequency components that give effective discrimination between different types of motor imagery
+are subject specific and identification of these subject-specific discriminative frequency
+components (DFCs) is important for the accurate classification of motor imagery activities. In this
+paper, we propose a new method to estimate the DFC using the Fisher criterion and investigate the
+variability of these DFCs over multiple sessions of EEG recording. Observing the variability of DFC
+over sessions in the analysis, a new BCI approach called the Adaptively Weighted Spectral-Spatial
+Patterns (AWSSP) algorithm is proposed. AWSSP tracks the variation in DFC over time adaptively based
+on the deviation of discriminative weight values of frequency components. The classification
+performance of the proposed AWSSP is compared with a static BCI approach that employs fixed DFCs. In
+the offline and online experiments, AWSSP offers better classification performance than the static
+approach, emphasizing the significance of tracking the variability of DFCs in EEGs for developing
+robust motor imagery-based BCI systems. A study of the effect of feedback on the variation in DFCs
+is also performed in online experiments and it is found that the presence of visual feedback results
+in increased variation in DFCs.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/8/i=2/a=025002
+T1  - Critical issues in state-of-the-art brain–computer interface signal processing
+A1  - Dean J Krusienski and Moritz Grosse-Wentrup and Ferran Galán and Damien Coyle and Kai J Miller and Elliott
+Forney and Charles W Anderson
+Y1  - 2011
+SP  - 025002
+JF  - Journal of Neural Engineering
+VL  - 8
+IS  - 2
+SN  - 1741-2552
+N2  - This paper reviews several critical issues facing signal processing for brain–computer interfaces
+(BCIs) and suggests several recent approaches that should be further examined. The topics were
+selected based on discussions held during the 4th International BCI Meeting at a workshop organized
+to review and evaluate the current state of, and issues relevant to, feature extraction and
+translation of field potentials for BCIs. The topics presented in this paper include the
+relationship between electroencephalography and electrocorticography, novel features for performance
+prediction, time-embedded signal representations, phase information, signal non-stationarity, and
+unsupervised adaptation.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/8/i=1/a=016001
+T1  - A robust sensor-selection method for P300 brain–computer interfaces
+A1  - H Cecotti and B Rivet and M Congedo and C Jutten and O Bertrand and E Maby and J Mattout
+Y1  - 2011
+SP  - 016001
+JF  - Journal of Neural Engineering
+VL  - 8
+IS  - 1
+SN  - 1741-2552
+N2  - A brain–computer interface (BCI) is a specific type of human–computer interface that enables direct
+communication between human and computer through decoding of brain activity. As such, event-related
+potentials like the P300 can be obtained with an oddball paradigm whose targets are selected by the
+user. This paper deals with methods to reduce the needed set of EEG sensors in the P300 speller
+application. A reduced number of sensors yields more comfort for the user, decreases installation
+time duration, may substantially reduce the financial cost of the BCI setup and may reduce the power
+consumption for wireless EEG caps. Our new approach to select relevant sensors is based on backward
+elimination using a cost function based on the signal to signal-plus-noise ratio, after some spatial
+filtering. We show that this cost function selects sensors' subsets that provide a better accuracy
+in the speller recognition rate during the test sessions than selected subsets based on
+classification accuracy. We validate our selection strategy on data from 20 healthy subjects.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/7/i=5/a=056004
+T1  - Classification effects of real and imaginary movement selective attention tasks on a P300-based
+brain–computer interface
+A1  - Mathew Salvaris and Francisco Sepulveda
+Y1  - 2010
+SP  - 056004
+JF  - Journal of Neural Engineering
+VL  - 7
+IS  - 5
+SN  - 1741-2552
+N2  - Brain–computer interfaces (BCIs) rely on various electroencephalography methodologies that allow the
+user to convey their desired control to the machine. Common approaches include the use of
+event-related potentials (ERPs) such as the P300 and modulation of the beta and mu rhythms. All of
+these methods have their benefits and drawbacks. In this paper, three different selective attention
+tasks were tested in conjunction with a P300-based protocol (i.e. the standard counting of target
+stimuli as well as the conduction of real and imaginary movements in sync with the target stimuli).
+The three tasks were performed by a total of 10 participants, with the majority (7 out of 10) of the
+participants having never before participated in imaginary movement BCI experiments. Channels and
+methods used were optimized for the P300 ERP and no sensory-motor rhythms were explicitly used. The
+classifier used was a simple Fisher's linear discriminant. Results were encouraging, showing that on
+average the imaginary movement achieved a P300 versus No-P300 classification accuracy of 84.53%. In
+comparison, mental counting, the standard selective attention task used in previous studies,
+achieved 78.9% and real movement 90.3%. Furthermore, multiple trial classification results were
+recorded and compared, with real movement reaching 99.5% accuracy after four trials (12.8 s),
+imaginary movement reaching 99.5% accuracy after five trials (16 s) and counting reaching 98.2%
+accuracy after ten trials (32 s).
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/7/i=2/a=026003
+T1  - A generative model approach for decoding in the visual event-related potential-based brain–computer
+interface speller
+A1  - S M M Martens and J M Leiva
+Y1  - 2010
+SP  - 026003
+JF  - Journal of Neural Engineering
+VL  - 7
+IS  - 2
+SN  - 1741-2552
+N2  - There is a strong tendency towards discriminative approaches in brain–computer interface (BCI)
+research. We argue that generative model-based approaches are worth pursuing and propose a simple
+generative model for the visual ERP-based BCI speller which incorporates prior knowledge about the
+brain signals. We show that the proposed generative method needs less training data to reach a given
+letter prediction performance than the state of the art discriminative approaches.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/6/i=4/a=046011
+T1  - Visual modifications on the P300 speller BCI paradigm
+A1  - M Salvaris and F Sepulveda
+Y1  - 2009
+SP  - 046011
+JF  - Journal of Neural Engineering
+VL  - 6
+IS  - 4
+SN  - 1741-2552
+N2  - The best known P300 speller brain-computer interface (BCI) paradigm is the Farwell and Donchin
+paradigm. In this paper, various changes to the visual aspects of this protocol are explored as well
+as their effects on classification. Changes to the dimensions of the symbols, the distance between
+the symbols and the colours used were tested. The purpose of the present work was not to achieve the
+highest possible accuracy results, but to ascertain whether these simple modifications to the visual
+protocol will provide classification differences between them and what these differences will be.
+Eight subjects were used, with each subject carrying out a total of six different experiments. In
+each experiment, the user spelt a total of 39 characters. Two types of classifiers were trained and
+tested to determine whether the results were classifier dependant. These were a support vector
+machine (SVM) with a radial basis function (RBF) kernel and Fisher's linear discriminant (FLD). The
+single-trial classification results and multiple-trial classification results were recorded and
+compared. Although no visual protocol was the best for all subjects, the best performances, across
+both classifiers, were obtained with the white background (WB) visual protocol. The worst
+performance was obtained with the small symbol size (SSS) visual protocol.
+ER  -
+	
+TY  - JOUR
+UR  - http://stacks.iop.org/1741-2552/6/i=4/a=041001
+T1  - The brain–computer interface cycle
+A1  - Marcel van Gerven and Jason Farquhar and Rebecca Schaefer and Rutger Vlek and Jeroen Geuze and Anton Nijholt and Nick
+Ramsey and Pim Haselager and Louis Vuurpijl and Stan Gielen and Peter Desain
+Y1  - 2009
+SP  - 041001
+JF  - Journal of Neural Engineering
+VL  - 6
+IS  - 4
+SN  - 1741-2552
+N2  - Brain–computer interfaces (BCIs) have attracted much attention recently, triggered by new scientific
+progress in understanding brain function and by impressive applications. The aim of this review is
+to give an overview of the various steps in the BCI cycle, i.e., the loop from the measurement of
+brain activity, classification of data, feedback to the subject and the effect of feedback on brain
+activity. In this article we will review the critical steps of the BCI cycle, the present issues and
+state-of-the-art results. Moreover, we will develop a vision on how recently obtained results may
+contribute to new insights in neurocognition and, in particular, in the neural representation of
+perceived stimuli, intended actions and emotions. Now is the right time to explore what can be
+gained by embracing real-time, online BCI and by adding it to the set of experimental tools already
+available to the cognitive neuroscientist. We close by pointing out some unresolved issues and
+present our view on how BCI could become an important new tool for probing human cognition.
+ER  -
+	

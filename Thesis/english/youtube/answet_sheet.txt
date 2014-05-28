@@ -1,0 +1,10 @@
+5-11::(A) It’s a good idea.  (B) So do I. (C) I think they should go to jail. ::C
+5-12::(A) The scene is very beautiful. (B) Several times. (C) What happened? ::C
+5-13::(A) Sounds cool! (B)Is it heavy? (C)Who are they? ::A
+5-14::(A) I haven’t be there yet. (B) Let’s start to plan it. (C) I knew it. ::A
+5-15::(A) Where is the company now? (B) It is a startup. (C) Who is he? ::A
+5-16::(A) So we should avoid it. (B) Let’s to get some. (C) Just like an engineer. ::A
+5-17::(A) What a beautiful story! (B) I have a lover now. (C) Love is so fancy. ::C
+5-18::(A) It’s called evolution. (B) But I won’t (C) I will persist that. ::A
+5-19::(A) My salary is less than you. (B) I know, it’s very healthy. (C) I won’t limit calories by salad.::C
+5-20::(A)

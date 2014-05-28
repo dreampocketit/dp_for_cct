@@ -1,0 +1,9 @@
+ThinkGear(TG)
+	enable a device to interface with the brainwave.Include the sensor and chip which processes all data.
+
+ThinkGear Connector(TGC)
+	This runs continuously in the background, and keeps open socket on the local user computer, provide a service that manage the communication with TG device.
+
+ThinkGear Communications Driver (TGCD) 
+
+	Is a device driver with a simple API that allows communication between an Application on a computer (or mobile device) and a ThinkGear chip/- module/headset.

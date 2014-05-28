@@ -17,3 +17,5 @@
 7. There are five different methods for backpropogation; BFGS is faster than GD, not to mention the L-BFGS
 
 8. Based on Arvins' data, C-SVM has higher precision rate than v-SVM  
+
+9. the precision of classify all data is 51.679%

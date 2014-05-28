@@ -1,6 +1,6 @@
 import csv
 import random
-FILE_NAME = '../subjects/33.csv'
+FILE_NAME = '../subjects/32.csv'
 
 difficult = []
 easy = []
