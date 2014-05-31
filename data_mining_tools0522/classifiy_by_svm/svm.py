@@ -17,7 +17,7 @@ def acc(name):
 	highest = 0
 	for i in range(1,101):
 		j=float(i)/100
-		learner = svm.SVMLearner(gamma=j, verbose=True)
+		learner = svm.SVMLearner(gamma=j)
 		results = testing.cross_validation([learner], data, folds=10)
 
 		if scoring.CA(results)[0]>highest:
@@ -31,4 +31,4 @@ def acc(name):
 
 
 
-acc('all')
+acc('35-3-6')

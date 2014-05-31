@@ -9,9 +9,10 @@ base_sta = 0
 base_sto = 3
 DIVIDE = 1
 
-subjects = ['01','02','03','04','05','06','07','08','09','10',
-			'11','12','13','14','15','16','17','18','19','20',
-			'21','22','23','24','25','26','27','28','29','30','31','32','33']
+#subjects = ['01','02','03','04','05','06','07','08','09','10',
+#			'11','12','13','14','15','16','17','18','19','20',
+#			'21','22','23','24','25','26','27','28','29','30','31','32','33','34']
+subjects=['35']
 seconds=['3-5','3-6','3-7']
 filter_array = ['gamma']
 
@@ -51,7 +52,7 @@ def power(sta, sto, f_n):
 	global base_sto
 	global base_sta
 	global DIVIDE
-	print f_n
+#	print f_n
 	f = open('../data/'+str(f_n[12:-8])+'-'+str(sta)+'-'+str(sto)+'.csv','w')
 	'''
 	for i in range(sta, sto+1): 
@@ -59,7 +60,7 @@ def power(sta, sto, f_n):
 				low_beta_s+'_'+str(i)+','+high_beta_s+'_'+str(i)+','+low_gamma_s+'_'+str(i)+','+mid_gamma_s+'_'+str(i)+',')
 	'''
 	# this is for sum
-	f.write('delta_ave,theta_ave,lowalpha_ave,highalpha_ave,lowbeta_ave,highbeta_ave,lowgamma_ave,midgamma_ave,')
+	#f.write('delta_ave,theta_ave,lowalpha_ave,highalpha_ave,lowbeta_ave,highbeta_ave,lowgamma_ave,midgamma_ave,')
 	f.write('delta_base_ave,theta_base_ave,lowalpha_base_ave,highalpha_base_ave,lowbeta_base_ave,highbeta_base_ave,lowgamma_base_ave,midgamma_base_ave,')	
 	
 	
@@ -142,7 +143,7 @@ def power(sta, sto, f_n):
 		'''
 
 		######## start of calculating average of all ##########
-	
+		'''
 		delta_ave = cal_ave(sta,sto+1,delta)
 		theta_ave = cal_ave(sta,sto+1,theta)
 		lowalpha_ave = cal_ave(sta,sto+1,lowalpha)
@@ -161,7 +162,7 @@ def power(sta, sto, f_n):
 		f.write(str(highbeta_ave)+',')
 		f.write(str(lowgamma_ave)+',')
 		f.write(str(midgamma_ave)+',')
-	
+		'''
 		######## end of calculating average of all##########
 
 
@@ -184,6 +185,7 @@ def power(sta, sto, f_n):
 				str(lowbeta_base_ave)+','+str(highbeta_base_ave)+','+str(lowgamma_base_ave)+','+str(midgamma_base_ave)+','
 
 		for i in range(sta, sto+1):
+
 			tmp1 = tmp1+str(delta[i]-delta_base_ave)+','+str(theta[i]-theta_base_ave)+','+\
 					str(lowalpha[i]-lowalpha_base_ave)+','+str(highalpha[i]-highalpha_base_ave)+','+\
 					str(lowbeta[i]-lowbeta_base_ave)+','+str(highbeta[i]-highbeta_base_ave)+','+\
@@ -202,10 +204,66 @@ for f_name in FILE_NAME:
 	for i in range(P_START_TIME,P_STOP_TIME-1):
 		for j in range(i+1,P_STOP_TIME):
 			power(i,j,'../subjects/'+str(f_name)+'.csv')
-			print 'produce files:'+str(i)+'-'+str(j)
+#			print 'produce files:'+str(i)+'-'+str(j)
+
+###############################################
+'''
+def differential(FILE_NAME):
+	tar_array=['delta_c','theta_c','lowalpha_c','highalpha_c','lowbeta_c','highbeta_c','lowgamma_c','midgamma_c']
+	in_f = open("../data/"+FILE_NAME+".csv",'r')
+	attrs = in_f.readline().split(',')
 
 
+	matching = []
+	matching_name = []
+	for tar in tar_array:
+		tmp_array = []
+		for s in attrs:
+			if tar in s:
+				matching_name.append(s)
+				tmp_array.append(attrs.index(s))
+		matching.append(tmp_array)
+	time_len = (len(matching_name)/8)-1
 
+	final_output = []
+	attr_name_array = []
+
+	for original_attr in attrs[:-1]:
+		attr_name_array.append(original_attr)
+
+
+	for attr_name in tar_array:
+		for i in range(time_len):
+			attr_name_array.append(attr_name+'c'+str(i))
+	attr_name_array.append('state')
+	final_output.append(attr_name_array)
+
+	for row in csv.reader(in_f):
+		output_row = []
+
+		for original_data in row[:-1]:
+			output_row.append(original_data)
+
+		for freq in matching:
+			freq_array = []
+			for loc in freq:
+				freq_array.append(int(row[loc]))
+
+			for data in np.diff(freq_array).tolist():
+				output_row.append(data)
+		output_row.append(row[-1])	
+		final_output.append(output_row)
+	
+	out_f = open('../data/'+FILE_NAME+'-diff.csv','w')
+	w = csv.writer(out_f) 
+	w.writerows(final_output)
+	out_f.close() 
+
+for s in subjects:
+	for t in seconds:
+		differential(s+"-"+t)
+'''
+##################################################################
 def sel_attr(f_name,tar_array):
 	
 	in_f = open("../data/"+f_name+".csv",'r')
@@ -221,7 +279,6 @@ def sel_attr(f_name,tar_array):
 	results = []
 	for similiar_word in matching:
 		results.append(attrs.index(similiar_word))
-
 
 	out_f = open("../data/"+f_name+"_attr.csv","w")
 
